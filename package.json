@@ -1,0 +1,9 @@
+{
+  "name": "karabiner",
+  "version": "1.0.0",
+  "dependencies": {
+    "edit-json-file": "^1.2.1",
+    "fs-extra": "^7.0.1",
+    "require-directory": "^2.1.1"
+  }
+}

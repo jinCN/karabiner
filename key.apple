@@ -1,0 +1,47 @@
+#!/usr/bin/env osascript
+set ll to {{k:",", v:"，", t:0}, {k:".", v:"。",t:1}}
+
+tell application "System Events"
+
+	set savedClipboard to the clipboard
+	key code 123 using {shift down}
+	keystroke "c" using {command down}
+
+
+	delay 0.02
+
+	set b to the clipboard
+
+	set done to false
+
+	repeat with theItem in ll
+
+		if k of theItem contains b then
+			delay 0.4
+
+			set the clipboard to v of theItem
+
+
+			keystroke "v" using {command down}
+
+			if t of theItem is 1 then
+			  delay 0.01
+			  key code 123
+			end if
+
+			delay 0.02
+
+			set the clipboard to savedClipboard
+
+			set done to true
+			exit repeat
+		end if
+	end repeat
+
+	if done is false then
+		key code 124
+		delay 0.03
+		set the clipboard to savedClipboard
+	end if
+
+end tell

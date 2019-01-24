@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+const fs = require('fs-extra')
+const jsonFile = require('edit-json-file')
+let ruleList=require('./rule')
+
+let file=jsonFile(`${__dirname}/karabiner.json`)
+let rules=file.get('profiles.0.complex_modifications.rules')
+rules=rules.filter(v=>!ruleList.find(w=>w.description===v.description))
+rules=rules.concat(ruleList)
+file.set('profiles.0.complex_modifications.rules',rules)
+
+fs.copySync(`${__dirname}/karabiner.json`, `${__dirname}/back/karabiner-${new Date()-0}.json`)
+file.save()
+console.log(`'ok': `, 'ok')
