@@ -10,7 +10,7 @@ function run (argv) {
   }
 }
 
-let funcs = { press, type, input, replace, delay, menu: menu_item }
+let funcs = { press, type, input, replace, delay, menu: menu_item,switch:swi }
 // How to use:
 //   1. Open "Script Editor" (requires OS X 10.10 Yosemite)
 //   2. Change the language from "AppleScript" to "JavaScript"
@@ -115,8 +115,13 @@ function input (text) {
   delay(0.1)
   system_events.setTheClipboardTo(oldClip)
 }
+function swi(){
+system_events.keyCode(47, { using: ['control down'] })
 
+}
 function press (hotkey) {
+  delay(0.1)
+  
   var using = []
   
   while (hotkey.length > 1) {

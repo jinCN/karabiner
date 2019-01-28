@@ -1,12 +1,9 @@
 const rules = require('.')
-const code = require('./common/code')
 let rule = { description: 'Long press to shift any input key' }
 rules.push(rule)
-let codes = Array(26)
-.fill(0)
-.map((v, i) => String.fromCharCode('a'.charCodeAt() + i))
-codes = codes.concat(Array(10).fill(0).map((v, i) => i + ''))
-codes = codes.concat(Object.values({
+
+let codesNum = Array(10).fill(0).map((v, i) => i + '')
+let codesSymbol = Object.values({
   ',': 'comma',
   '.': 'period',
   '/': 'slash',
@@ -18,17 +15,27 @@ codes = codes.concat(Object.values({
   '=': 'equal_sign',
   '\\': 'backslash',
   '`': 'grave_accent_and_tilde'
-}))
+})
 
-function template (code) {
+function template (code, shift = false) {
   return {
     'type': 'basic',
-    'from': { 'key_code': code },
-    'to': [{ 'key_code': code,'repeat':false }],
+    'from': {
+      'key_code': code, ...shift && { modifiers: { mandatory: 'shift' } }
+    },
+    'to': [
+      {
+        'key_code': code, ...shift && { modifiers: 'shift' },
+        'repeat': false
+      }],
     'to_if_held_down': [
       { 'key_code': 'delete_or_backspace' },
-      { 'key_code': code, 'modifiers': 'left_shift', 'repeat': false }]
+      { 'key_code': 'period', modifiers: 'left_control' },
+      { 'key_code': code, ...shift && { modifiers: 'shift' } },
+      { 'shell_command': 'key switch' }]
   }
 }
 
-rule.manipulators = codes.map(v => template(v))
+rule.manipulators = codesSymbol.map(v => template(v))
+  .concat(codesSymbol.map(v => template(v, true)))
+  .concat(codesNum.map(v => template(v, true)))

@@ -2,7 +2,7 @@ const rules = require('.')
 const code = require('./common/code')
 let rule = {
   description: 'left_shift to replace by rule',
-  manipulators: [
+  manipulators1: [
     {
       "parameters": {
         "basic.to_if_alone_timeout_milliseconds": 100
