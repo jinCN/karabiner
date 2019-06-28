@@ -2212,7 +2212,7 @@
           },
           {
             "description": "left_option*2 to switch back, left_option*1 to switch next",
-            "manipulators": [
+            "bak_manipulators": [
               {
                 "conditions": [
                   {

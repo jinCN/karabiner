@@ -18,6 +18,25 @@ let codesSymbol = Object.values({
 })
 
 function template (code, shift = false) {
+  if (code === 'hyphen' && !shift) {
+    return {
+      'type': 'basic',
+      'from': {
+        'key_code': code
+      },
+      'to': [
+        {
+          'key_code': code,
+          'repeat': false
+        }],
+      'to_if_held_down': [
+        {
+          'key_code': code,
+          modifiers: 'shift',
+          'repeat': false
+        }]
+    }
+  }
   return {
     'type': 'basic',
     'from': {
