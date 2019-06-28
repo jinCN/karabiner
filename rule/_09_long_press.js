@@ -30,6 +30,7 @@ function template (code, shift = false) {
           'repeat': false
         }],
       'to_if_held_down': [
+        { 'key_code': 'delete_or_backspace' },
         {
           'key_code': code,
           modifiers: 'shift',

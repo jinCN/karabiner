@@ -2642,6 +2642,9 @@
                 ],
                 "to_if_held_down": [
                   {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
                     "key_code": "hyphen",
                     "modifiers": "shift",
                     "repeat": false
