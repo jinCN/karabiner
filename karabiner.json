@@ -2642,17 +2642,9 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "period",
-                    "modifiers": "left_control"
-                  },
-                  {
-                    "key_code": "hyphen"
-                  },
-                  {
-                    "shell_command": "key switch"
+                    "key_code": "hyphen",
+                    "modifiers": "shift",
+                    "repeat": false
                   }
                 ]
               },
