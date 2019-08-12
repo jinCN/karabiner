@@ -1933,192 +1933,6 @@
             ]
           },
           {
-            "description": "del_mode[ '=' as trigger key, except for hhkb]",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "identifiers": [
-                      {
-                        "description": "hhkb",
-                        "product_id": 256,
-                        "vendor_id": 2131
-                      }
-                    ],
-                    "type": "device_unless"
-                  }
-                ],
-                "from": {
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  },
-                  "simultaneous": [
-                    {
-                      "key_code": "equal_sign"
-                    },
-                    {
-                      "key_code": "delete_or_backspace"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "key_down_order": "strict",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "DelFN",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  }
-                },
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 500
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "DelFN",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "DelFN",
-                    "type": "variable_if",
-                    "value": 1
-                  },
-                  {
-                    "identifiers": [
-                      {
-                        "description": "hhkb",
-                        "product_id": 256,
-                        "vendor_id": 2131
-                      }
-                    ],
-                    "type": "device_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "delete_or_backspace",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "del_mode[ ']' as trigger key, for hhkb]",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "identifiers": [
-                      {
-                        "description": "hhkb",
-                        "product_id": 256,
-                        "vendor_id": 2131
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "from": {
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  },
-                  "simultaneous": [
-                    {
-                      "key_code": "close_bracket"
-                    },
-                    {
-                      "key_code": "delete_or_backspace"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "key_down_order": "strict",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "DelFN",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  }
-                },
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 500
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "DelFN",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "DelFN",
-                    "type": "variable_if",
-                    "value": 1
-                  },
-                  {
-                    "identifiers": [
-                      {
-                        "description": "hhkb",
-                        "product_id": 256,
-                        "vendor_id": 2131
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "delete_or_backspace",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "left_command+esc to sleep",
             "manipulators": [
               {
@@ -2289,33 +2103,6 @@
             ]
           },
           {
-            "description": "left_control to enter",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "left_control",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_control",
-                    "lazy": true
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "return_or_enter"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "long esc to restart chrome",
             "manipulators": [
               {
@@ -2366,73 +2153,187 @@
             ]
           },
           {
-            "description": "Quit application by pressing command-q twice",
+            "description": "del_mode[ '=' as trigger key, except for hhkb]",
             "manipulators": [
               {
                 "conditions": [
                   {
-                    "name": "command-q",
-                    "type": "variable_if",
-                    "value": 1
+                    "identifiers": [
+                      {
+                        "description": "hhkb",
+                        "product_id": 256,
+                        "vendor_id": 2131
+                      }
+                    ],
+                    "type": "device_unless"
                   }
                 ],
                 "from": {
-                  "key_code": "q",
                   "modifiers": {
-                    "mandatory": [
-                      "command"
-                    ],
                     "optional": [
-                      "caps_lock"
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "equal_sign"
+                    },
+                    {
+                      "key_code": "delete_or_backspace"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "DelFN",
+                          "value": 0
+                        }
+                      }
                     ]
                   }
                 },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 500
+                },
                 "to": [
                   {
-                    "key_code": "q",
-                    "modifiers": "left_command"
+                    "set_variable": {
+                      "name": "DelFN",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "delete_forward"
                   }
                 ],
                 "type": "basic"
               },
               {
-                "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "mandatory": [
-                      "command"
+                "conditions": [
+                  {
+                    "name": "DelFN",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "description": "hhkb",
+                        "product_id": 256,
+                        "vendor_id": 2131
+                      }
                     ],
+                    "type": "device_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "delete_or_backspace",
+                  "modifiers": {
                     "optional": [
-                      "caps_lock"
+                      "any"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "set_variable": {
-                      "name": "command-q",
-                      "value": 1
-                    }
+                    "key_code": "delete_forward"
                   }
                 ],
-                "to_delayed_action": {
-                  "to_if_canceled": [
-                    {
-                      "set_variable": {
-                        "name": "command-q",
-                        "value": 0
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "del_mode[ ']' as trigger key, for hhkb]",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "identifiers": [
+                      {
+                        "description": "hhkb",
+                        "product_id": 256,
+                        "vendor_id": 2131
                       }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "delete_or_backspace"
+                    },
+                    {
+                      "key_code": "close_bracket"
                     }
                   ],
-                  "to_if_invoked": [
-                    {
-                      "set_variable": {
-                        "name": "command-q",
-                        "value": 0
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "DelFN",
+                          "value": 0
+                        }
                       }
-                    }
-                  ]
+                    ]
+                  }
                 },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 200
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "DelFN",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "delete_forward"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "DelFN",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "description": "hhkb",
+                        "product_id": 256,
+                        "vendor_id": 2131
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "close_bracket",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_forward"
+                  }
+                ],
                 "type": "basic"
               }
             ]
@@ -2441,6 +2342,64 @@
             "description": "Long press to shift any input key",
             "manipulators": [
               {
+                "conditions": [
+                  {
+                    "name": "double_press-comma",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "comma"
+                },
+                "to": [
+                  {
+                    "key_code": "comma",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-comma",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "comma",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-comma",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "comma"
@@ -2449,8 +2408,35 @@
                   {
                     "key_code": "comma",
                     "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-comma",
+                      "value": 1
+                    }
                   }
                 ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-comma",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-comma",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "to_if_held_down": [
                   {
                     "key_code": "delete_or_backspace"
@@ -2468,6 +2454,115 @@
                 ]
               },
               {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "comma"
+                },
+                "to": [
+                  {
+                    "key_code": "comma",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-comma",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-comma",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-comma",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-period",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "period"
+                },
+                "to": [
+                  {
+                    "key_code": "period",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-period",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "period",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-period",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "period"
@@ -2476,8 +2571,35 @@
                   {
                     "key_code": "period",
                     "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-period",
+                      "value": 1
+                    }
                   }
                 ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-period",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-period",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "to_if_held_down": [
                   {
                     "key_code": "delete_or_backspace"
@@ -2495,6 +2617,115 @@
                 ]
               },
               {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "period"
+                },
+                "to": [
+                  {
+                    "key_code": "period",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-period",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-period",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-period",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-slash",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "slash"
+                },
+                "to": [
+                  {
+                    "key_code": "slash",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-slash",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "slash",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-slash",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "slash"
@@ -2503,8 +2734,35 @@
                   {
                     "key_code": "slash",
                     "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-slash",
+                      "value": 1
+                    }
                   }
                 ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-slash",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-slash",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "to_if_held_down": [
                   {
                     "key_code": "delete_or_backspace"
@@ -2522,6 +2780,115 @@
                 ]
               },
               {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "slash"
+                },
+                "to": [
+                  {
+                    "key_code": "slash",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-slash",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-slash",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-slash",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-semicolon",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "semicolon"
+                },
+                "to": [
+                  {
+                    "key_code": "semicolon",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-semicolon",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "semicolon",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-semicolon",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "semicolon"
@@ -2530,8 +2897,35 @@
                   {
                     "key_code": "semicolon",
                     "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-semicolon",
+                      "value": 1
+                    }
                   }
                 ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-semicolon",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-semicolon",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "to_if_held_down": [
                   {
                     "key_code": "delete_or_backspace"
@@ -2549,6 +2943,115 @@
                 ]
               },
               {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "semicolon"
+                },
+                "to": [
+                  {
+                    "key_code": "semicolon",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-semicolon",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-semicolon",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-semicolon",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-quote",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "quote"
+                },
+                "to": [
+                  {
+                    "key_code": "quote",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-quote",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "quote",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-quote",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "quote"
@@ -2557,8 +3060,35 @@
                   {
                     "key_code": "quote",
                     "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-quote",
+                      "value": 1
+                    }
                   }
                 ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-quote",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-quote",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "to_if_held_down": [
                   {
                     "key_code": "delete_or_backspace"
@@ -2576,6 +3106,115 @@
                 ]
               },
               {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "quote"
+                },
+                "to": [
+                  {
+                    "key_code": "quote",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-quote",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-quote",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-quote",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-open_bracket",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "open_bracket"
+                },
+                "to": [
+                  {
+                    "key_code": "open_bracket",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-open_bracket",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-open_bracket",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "open_bracket"
@@ -2584,8 +3223,35 @@
                   {
                     "key_code": "open_bracket",
                     "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-open_bracket",
+                      "value": 1
+                    }
                   }
                 ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-open_bracket",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-open_bracket",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "to_if_held_down": [
                   {
                     "key_code": "delete_or_backspace"
@@ -2603,6 +3269,115 @@
                 ]
               },
               {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "open_bracket"
+                },
+                "to": [
+                  {
+                    "key_code": "open_bracket",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-open_bracket",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-open_bracket",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-open_bracket",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-close_bracket",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "close_bracket"
+                },
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-close_bracket",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-close_bracket",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "close_bracket"
@@ -2611,8 +3386,35 @@
                   {
                     "key_code": "close_bracket",
                     "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-close_bracket",
+                      "value": 1
+                    }
                   }
                 ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-close_bracket",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-close_bracket",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "to_if_held_down": [
                   {
                     "key_code": "delete_or_backspace"
@@ -2630,6 +3432,115 @@
                 ]
               },
               {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "close_bracket"
+                },
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-close_bracket",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-close_bracket",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-close_bracket",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-hyphen",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "hyphen"
+                },
+                "to": [
+                  {
+                    "key_code": "hyphen",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-hyphen",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "hyphen",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-hyphen",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "hyphen"
@@ -2638,20 +3549,161 @@
                   {
                     "key_code": "hyphen",
                     "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-hyphen",
+                      "value": 1
+                    }
                   }
                 ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-hyphen",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-hyphen",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "to_if_held_down": [
                   {
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "hyphen",
-                    "modifiers": "shift",
-                    "repeat": false
+                    "key_code": "period",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "hyphen"
+                  },
+                  {
+                    "shell_command": "key switch"
                   }
                 ]
               },
               {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "hyphen"
+                },
+                "to": [
+                  {
+                    "key_code": "hyphen",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-hyphen",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-hyphen",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-hyphen",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-equal_sign",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "equal_sign"
+                },
+                "to": [
+                  {
+                    "key_code": "equal_sign",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-equal_sign",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "equal_sign",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-equal_sign",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "equal_sign"
@@ -2660,8 +3712,35 @@
                   {
                     "key_code": "equal_sign",
                     "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-equal_sign",
+                      "value": 1
+                    }
                   }
                 ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-equal_sign",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-equal_sign",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "to_if_held_down": [
                   {
                     "key_code": "delete_or_backspace"
@@ -2679,6 +3758,115 @@
                 ]
               },
               {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "equal_sign"
+                },
+                "to": [
+                  {
+                    "key_code": "equal_sign",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-equal_sign",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-equal_sign",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-equal_sign",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-backslash",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "backslash"
+                },
+                "to": [
+                  {
+                    "key_code": "backslash",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-backslash",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "backslash",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-backslash",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "backslash"
@@ -2687,8 +3875,35 @@
                   {
                     "key_code": "backslash",
                     "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-backslash",
+                      "value": 1
+                    }
                   }
                 ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-backslash",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-backslash",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "to_if_held_down": [
                   {
                     "key_code": "delete_or_backspace"
@@ -2706,6 +3921,115 @@
                 ]
               },
               {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "backslash"
+                },
+                "to": [
+                  {
+                    "key_code": "backslash",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-backslash",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-backslash",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-backslash",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-grave_accent_and_tilde",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "grave_accent_and_tilde"
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-grave_accent_and_tilde",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-grave_accent_and_tilde",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "grave_accent_and_tilde"
@@ -2714,8 +4038,35 @@
                   {
                     "key_code": "grave_accent_and_tilde",
                     "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-grave_accent_and_tilde",
+                      "value": 1
+                    }
                   }
                 ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-grave_accent_and_tilde",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-grave_accent_and_tilde",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "to_if_held_down": [
                   {
                     "key_code": "delete_or_backspace"
@@ -2731,6 +4082,57 @@
                     "shell_command": "key switch"
                   }
                 ]
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "grave_accent_and_tilde"
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-grave_accent_and_tilde",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-grave_accent_and_tilde",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-grave_accent_and_tilde",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
               },
               {
                 "type": "basic",
@@ -3085,6 +4487,1636 @@
                 ]
               },
               {
+                "conditions": [
+                  {
+                    "name": "double_press-0",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "0"
+                },
+                "to": [
+                  {
+                    "key_code": "0",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-0",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "0",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-0",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "0"
+                },
+                "to": [
+                  {
+                    "key_code": "0",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-0",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-0",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-0",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "period",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "0"
+                  },
+                  {
+                    "shell_command": "key switch"
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "0"
+                },
+                "to": [
+                  {
+                    "key_code": "0",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-0",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-0",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-0",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-1",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "1"
+                },
+                "to": [
+                  {
+                    "key_code": "1",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-1",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "1",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-1",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "1"
+                },
+                "to": [
+                  {
+                    "key_code": "1",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-1",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-1",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-1",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "period",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "1"
+                  },
+                  {
+                    "shell_command": "key switch"
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "1"
+                },
+                "to": [
+                  {
+                    "key_code": "1",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-1",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-1",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-1",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-2",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "2"
+                },
+                "to": [
+                  {
+                    "key_code": "2",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-2",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "2",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-2",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "2"
+                },
+                "to": [
+                  {
+                    "key_code": "2",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-2",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-2",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-2",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "period",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "2"
+                  },
+                  {
+                    "shell_command": "key switch"
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "2"
+                },
+                "to": [
+                  {
+                    "key_code": "2",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-2",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-2",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-2",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-3",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "3"
+                },
+                "to": [
+                  {
+                    "key_code": "3",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-3",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "3",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-3",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "3"
+                },
+                "to": [
+                  {
+                    "key_code": "3",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-3",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-3",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-3",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "period",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "3"
+                  },
+                  {
+                    "shell_command": "key switch"
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "3"
+                },
+                "to": [
+                  {
+                    "key_code": "3",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-3",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-3",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-3",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-4",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "4"
+                },
+                "to": [
+                  {
+                    "key_code": "4",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-4",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "4",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-4",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "4"
+                },
+                "to": [
+                  {
+                    "key_code": "4",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-4",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-4",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-4",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "period",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "4"
+                  },
+                  {
+                    "shell_command": "key switch"
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "4"
+                },
+                "to": [
+                  {
+                    "key_code": "4",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-4",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-4",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-4",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-5",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "5"
+                },
+                "to": [
+                  {
+                    "key_code": "5",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-5",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "5",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-5",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "5"
+                },
+                "to": [
+                  {
+                    "key_code": "5",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-5",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-5",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-5",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "period",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "5"
+                  },
+                  {
+                    "shell_command": "key switch"
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "5"
+                },
+                "to": [
+                  {
+                    "key_code": "5",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-5",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-5",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-5",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-6",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "6"
+                },
+                "to": [
+                  {
+                    "key_code": "6",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-6",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "6",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-6",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "6"
+                },
+                "to": [
+                  {
+                    "key_code": "6",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-6",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-6",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-6",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "period",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "6"
+                  },
+                  {
+                    "shell_command": "key switch"
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "6"
+                },
+                "to": [
+                  {
+                    "key_code": "6",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-6",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-6",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-6",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-7",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "7"
+                },
+                "to": [
+                  {
+                    "key_code": "7",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-7",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "7",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-7",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "7"
+                },
+                "to": [
+                  {
+                    "key_code": "7",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-7",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-7",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-7",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "period",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "7"
+                  },
+                  {
+                    "shell_command": "key switch"
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "7"
+                },
+                "to": [
+                  {
+                    "key_code": "7",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-7",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-7",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-7",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-8",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "8"
+                },
+                "to": [
+                  {
+                    "key_code": "8",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-8",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "8",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-8",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "8"
+                },
+                "to": [
+                  {
+                    "key_code": "8",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-8",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-8",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-8",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "period",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "8"
+                  },
+                  {
+                    "shell_command": "key switch"
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "8"
+                },
+                "to": [
+                  {
+                    "key_code": "8",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-8",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-8",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-8",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "double_press-9",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "9"
+                },
+                "to": [
+                  {
+                    "key_code": "9",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-9",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 180
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "9",
+                    "modifiers": "left_shift"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-9",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_if",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "9"
+                },
+                "to": [
+                  {
+                    "key_code": "9",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-9",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 200
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-9",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-9",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "period",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "9"
+                  },
+                  {
+                    "shell_command": "key switch"
+                  }
+                ]
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "input_source_unless",
+                    "input_sources": [
+                      {
+                        "language": "zh",
+                        "input_source_id": "sogou",
+                        "input_mode_id": "sogou"
+                      }
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "9"
+                },
+                "to": [
+                  {
+                    "key_code": "9",
+                    "repeat": false
+                  },
+                  {
+                    "set_variable": {
+                      "name": "double_press-9",
+                      "value": 1
+                    }
+                  }
+                ],
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 300
+                },
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-9",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "double_press-9",
+                        "value": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
                 "type": "basic",
                 "from": {
                   "key_code": "0",
@@ -3408,11 +6440,8 @@
           },
           {
             "description": "left_shift to replace by rule",
-            "manipulators1": [
+            "manipulators": [
               {
-                "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 100
-                },
                 "from": {
                   "key_code": "left_shift"
                 },
@@ -3427,6 +6456,105 @@
                     "shell_command": "key replace"
                   }
                 ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "left_control to enter",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "left_control",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_control",
+                    "lazy": true
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "return_or_enter"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Quit application by pressing command-q twice",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "name": "command-q",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "q",
+                    "modifiers": "left_command"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "command-q",
+                      "value": 1
+                    }
+                  }
+                ],
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "command-q",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "command-q",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
                 "type": "basic"
               }
             ]

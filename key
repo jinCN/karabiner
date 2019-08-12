@@ -38,8 +38,7 @@ var modifiers = {
   '⌥': 'option down',
   '⇧': 'shift down'
 }
-let replaceStr = `
-;；
+let replaceStr = `;；
 :：
 ,，
 .。
@@ -55,8 +54,7 @@ _——
 \\、
 \`·
 `
-let replaceStr2 = `
-'‘’
+let replaceStr2 = `'‘’
 "“”
 (（）
 <《》
@@ -73,6 +71,7 @@ replaceStr2.split('\n').forEach(v => {
 })
 
 function replace () {
+  
   let oldClip = system_events.theClipboard()
   
   system_events.keyCode(123, { using: ['shift down'] })
@@ -82,7 +81,9 @@ function replace () {
   let clip = system_events.theClipboard()
   let x = clip[clip.length - 1]
   if (replaceTable[x]) {
-    delay(0.5)
+    system_events.keyCode(124)
+    system_events.keyCode(51)
+    
     system_events.setTheClipboardTo(replaceTable[x])
     delay(0.01)
     
@@ -91,7 +92,9 @@ function replace () {
     system_events.setTheClipboardTo(oldClip)
   }
   else if (replaceTable2[x]) {
-    delay(0.5)
+    system_events.keyCode(124)
+    system_events.keyCode(51)
+    
     system_events.setTheClipboardTo(replaceTable2[x])
     delay(0.01)
     
@@ -119,6 +122,7 @@ function swi(){
 system_events.keyCode(47, { using: ['control down'] })
 
 }
+
 function press (hotkey) {
   delay(0.1)
   
