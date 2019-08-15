@@ -1,11 +1,16 @@
 const rules = require('.')
 
-let newRules=[
+let newRules = [
   {
     "description": "del_mode[ '=' as trigger key, except for hhkb]",
     "manipulators": [
       {
         "conditions": [
+          {
+            'name': 'double_press-equal_sign',
+            'type': 'variable_unless',
+            'value': 1
+          },
           {
             "identifiers": [
               {
@@ -100,6 +105,11 @@ let newRules=[
       {
         "conditions": [
           {
+            'name': 'double_press-close_bracket',
+            'type': 'variable_unless',
+            'value': 1
+          },
+          {
             "identifiers": [
               {
                 "description": "hhkb",
@@ -110,7 +120,6 @@ let newRules=[
             "type": "device_if"
           }
         ],
-        
         "from": {
           "modifiers": {
             "optional": [
@@ -119,12 +128,11 @@ let newRules=[
           },
           "simultaneous": [
             {
-              "key_code": "delete_or_backspace"
-            },
-            {
               "key_code": "close_bracket"
             },
-            
+            {
+              "key_code": "delete_or_backspace"
+            }
           ],
           "simultaneous_options": {
             "key_down_order": "strict",
@@ -139,7 +147,7 @@ let newRules=[
           }
         },
         "parameters": {
-          "basic.simultaneous_threshold_milliseconds": 200
+          "basic.simultaneous_threshold_milliseconds": 500
         },
         "to": [
           {
@@ -173,7 +181,7 @@ let newRules=[
           }
         ],
         "from": {
-          "key_code": "close_bracket",
+          "key_code": "delete_or_backspace",
           "modifiers": {
             "optional": [
               "any"

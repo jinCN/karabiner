@@ -10,7 +10,7 @@ function run (argv) {
   }
 }
 
-let funcs = { press, type, input, replace, delay, menu: menu_item,switch:swi }
+let funcs = { press, type, delayType, input, replace, delay, menu: menu_item,switch:swi }
 // How to use:
 //   1. Open "Script Editor" (requires OS X 10.10 Yosemite)
 //   2. Change the language from "AppleScript" to "JavaScript"
@@ -150,7 +150,10 @@ function type (text) {
     system_events.keystroke(text[i])
   }
 }
-
+function delayType (text) {
+  delay(0.10)
+  type(text)
+}
 function menu_item () {
   if (!arguments.length) return
   
