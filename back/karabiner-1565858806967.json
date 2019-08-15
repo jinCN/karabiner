@@ -2158,11 +2158,6 @@
               {
                 "conditions": [
                   {
-                    "name": "double_press-equal_sign",
-                    "type": "variable_unless",
-                    "value": 1
-                  },
-                  {
                     "identifiers": [
                       {
                         "description": "hhkb",
@@ -2256,11 +2251,6 @@
               {
                 "conditions": [
                   {
-                    "name": "double_press-close_bracket",
-                    "type": "variable_unless",
-                    "value": 1
-                  },
-                  {
                     "identifiers": [
                       {
                         "description": "hhkb",
@@ -2279,10 +2269,10 @@
                   },
                   "simultaneous": [
                     {
-                      "key_code": "close_bracket"
+                      "key_code": "delete_or_backspace"
                     },
                     {
-                      "key_code": "delete_or_backspace"
+                      "key_code": "close_bracket"
                     }
                   ],
                   "simultaneous_options": {
@@ -2298,7 +2288,7 @@
                   }
                 },
                 "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 500
+                  "basic.simultaneous_threshold_milliseconds": 200
                 },
                 "to": [
                   {
@@ -2332,7 +2322,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "delete_or_backspace",
+                  "key_code": "close_bracket",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -10612,15 +10602,13 @@
             "description": "left_shift to replace by rule",
             "manipulators": [
               {
-                "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 300
-                },
                 "from": {
                   "key_code": "left_shift"
                 },
                 "to": [
                   {
-                    "key_code": "left_shift"
+                    "key_code": "left_shift",
+                    "lazy": true
                   }
                 ],
                 "to_if_alone": [

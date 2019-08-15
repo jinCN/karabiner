@@ -2158,11 +2158,6 @@
               {
                 "conditions": [
                   {
-                    "name": "double_press-equal_sign",
-                    "type": "variable_unless",
-                    "value": 1
-                  },
-                  {
                     "identifiers": [
                       {
                         "description": "hhkb",
@@ -2256,11 +2251,6 @@
               {
                 "conditions": [
                   {
-                    "name": "double_press-close_bracket",
-                    "type": "variable_unless",
-                    "value": 1
-                  },
-                  {
                     "identifiers": [
                       {
                         "description": "hhkb",
@@ -2279,10 +2269,10 @@
                   },
                   "simultaneous": [
                     {
-                      "key_code": "close_bracket"
+                      "key_code": "delete_or_backspace"
                     },
                     {
-                      "key_code": "delete_or_backspace"
+                      "key_code": "close_bracket"
                     }
                   ],
                   "simultaneous_options": {
@@ -2298,7 +2288,7 @@
                   }
                 },
                 "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 500
+                  "basic.simultaneous_threshold_milliseconds": 200
                 },
                 "to": [
                   {
@@ -2332,7 +2322,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "delete_or_backspace",
+                  "key_code": "close_bracket",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -6544,14 +6534,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type a"
+                    "shell_command": "key delayType a"
                   }
                 ]
               },
@@ -6704,14 +6693,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type b"
+                    "shell_command": "key delayType b"
                   }
                 ]
               },
@@ -6864,14 +6852,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type c"
+                    "shell_command": "key delayType c"
                   }
                 ]
               },
@@ -7024,14 +7011,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type d"
+                    "shell_command": "key delayType d"
                   }
                 ]
               },
@@ -7184,14 +7170,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type e"
+                    "shell_command": "key delayType e"
                   }
                 ]
               },
@@ -7344,14 +7329,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type f"
+                    "shell_command": "key delayType f"
                   }
                 ]
               },
@@ -7504,14 +7488,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type g"
+                    "shell_command": "key delayType g"
                   }
                 ]
               },
@@ -7664,14 +7647,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type h"
+                    "shell_command": "key delayType h"
                   }
                 ]
               },
@@ -7824,14 +7806,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type i"
+                    "shell_command": "key delayType i"
                   }
                 ]
               },
@@ -7984,14 +7965,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type j"
+                    "shell_command": "key delayType j"
                   }
                 ]
               },
@@ -8144,14 +8124,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type k"
+                    "shell_command": "key delayType k"
                   }
                 ]
               },
@@ -8304,14 +8283,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type l"
+                    "shell_command": "key delayType l"
                   }
                 ]
               },
@@ -8464,14 +8442,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type m"
+                    "shell_command": "key delayType m"
                   }
                 ]
               },
@@ -8624,14 +8601,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type n"
+                    "shell_command": "key delayType n"
                   }
                 ]
               },
@@ -8784,14 +8760,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type o"
+                    "shell_command": "key delayType o"
                   }
                 ]
               },
@@ -8944,14 +8919,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type p"
+                    "shell_command": "key delayType p"
                   }
                 ]
               },
@@ -9104,14 +9078,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type q"
+                    "shell_command": "key delayType q"
                   }
                 ]
               },
@@ -9264,14 +9237,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type r"
+                    "shell_command": "key delayType r"
                   }
                 ]
               },
@@ -9424,14 +9396,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type s"
+                    "shell_command": "key delayType s"
                   }
                 ]
               },
@@ -9584,14 +9555,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type t"
+                    "shell_command": "key delayType t"
                   }
                 ]
               },
@@ -9744,14 +9714,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type u"
+                    "shell_command": "key delayType u"
                   }
                 ]
               },
@@ -9904,14 +9873,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type v"
+                    "shell_command": "key delayType v"
                   }
                 ]
               },
@@ -10064,14 +10032,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type w"
+                    "shell_command": "key delayType w"
                   }
                 ]
               },
@@ -10224,14 +10191,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type x"
+                    "shell_command": "key delayType x"
                   }
                 ]
               },
@@ -10384,14 +10350,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type y"
+                    "shell_command": "key delayType y"
                   }
                 ]
               },
@@ -10544,14 +10509,13 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
+                    "key_code": "right_shift"
                   },
                   {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "key_code": "f12"
                   },
                   {
-                    "shell_command": "key type z"
+                    "shell_command": "key delayType z"
                   }
                 ]
               },
@@ -10612,15 +10576,13 @@
             "description": "left_shift to replace by rule",
             "manipulators": [
               {
-                "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 300
-                },
                 "from": {
                   "key_code": "left_shift"
                 },
                 "to": [
                   {
-                    "key_code": "left_shift"
+                    "key_code": "left_shift",
+                    "lazy": true
                   }
                 ],
                 "to_if_alone": [

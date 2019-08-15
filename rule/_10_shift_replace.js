@@ -4,13 +4,15 @@ let rule = {
   description: 'left_shift to replace by rule',
   manipulators: [
     {
+      "parameters": {
+        "basic.to_if_alone_timeout_milliseconds": 300,
+      },
       'from': {
         'key_code': 'left_shift'
       },
       'to': [
         {
-          'key_code': 'left_shift',
-          'lazy': true
+          'key_code': 'left_shift'
         }
       ],
       'to_if_alone': [

@@ -10610,17 +10610,18 @@
           },
           {
             "description": "left_shift to replace by rule",
-            "manipulators": [
+            "manipulators1": [
               {
                 "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 300
+                  "basic.to_if_alone_timeout_milliseconds": 80
                 },
                 "from": {
                   "key_code": "left_shift"
                 },
                 "to": [
                   {
-                    "key_code": "left_shift"
+                    "key_code": "left_shift",
+                    "lazy": true
                   }
                 ],
                 "to_if_alone": [

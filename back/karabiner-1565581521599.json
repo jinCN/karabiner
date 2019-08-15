@@ -2158,11 +2158,6 @@
               {
                 "conditions": [
                   {
-                    "name": "double_press-equal_sign",
-                    "type": "variable_unless",
-                    "value": 1
-                  },
-                  {
                     "identifiers": [
                       {
                         "description": "hhkb",
@@ -2256,11 +2251,6 @@
               {
                 "conditions": [
                   {
-                    "name": "double_press-close_bracket",
-                    "type": "variable_unless",
-                    "value": 1
-                  },
-                  {
                     "identifiers": [
                       {
                         "description": "hhkb",
@@ -2279,10 +2269,10 @@
                   },
                   "simultaneous": [
                     {
-                      "key_code": "close_bracket"
+                      "key_code": "delete_or_backspace"
                     },
                     {
-                      "key_code": "delete_or_backspace"
+                      "key_code": "close_bracket"
                     }
                   ],
                   "simultaneous_options": {
@@ -2298,7 +2288,7 @@
                   }
                 },
                 "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 500
+                  "basic.simultaneous_threshold_milliseconds": 200
                 },
                 "to": [
                   {
@@ -2332,7 +2322,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "delete_or_backspace",
+                  "key_code": "close_bracket",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -6544,11 +6534,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type a"
@@ -6704,11 +6694,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type b"
@@ -6864,11 +6854,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type c"
@@ -7024,11 +7014,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type d"
@@ -7184,11 +7174,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type e"
@@ -7344,11 +7334,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type f"
@@ -7504,11 +7494,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type g"
@@ -7664,11 +7654,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type h"
@@ -7824,11 +7814,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type i"
@@ -7984,11 +7974,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type j"
@@ -8144,11 +8134,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type k"
@@ -8304,11 +8294,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type l"
@@ -8464,11 +8454,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type m"
@@ -8624,11 +8614,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type n"
@@ -8784,11 +8774,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type o"
@@ -8944,11 +8934,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type p"
@@ -9104,11 +9094,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type q"
@@ -9264,11 +9254,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type r"
@@ -9424,11 +9414,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type s"
@@ -9584,11 +9574,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type t"
@@ -9744,11 +9734,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type u"
@@ -9904,11 +9894,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type v"
@@ -10064,11 +10054,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type w"
@@ -10224,11 +10214,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type x"
@@ -10384,11 +10374,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type y"
@@ -10544,11 +10534,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
-                    "key_code": "f12",
-                    "modifiers": "left_shift"
+                    "select_input_source": {
+                      "language": "zh",
+                      "input_source_id": "sogou",
+                      "input_mode_id": "sogou"
+                    }
                   },
                   {
                     "shell_command": "key type z"
@@ -10612,15 +10602,13 @@
             "description": "left_shift to replace by rule",
             "manipulators": [
               {
-                "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 300
-                },
                 "from": {
                   "key_code": "left_shift"
                 },
                 "to": [
                   {
-                    "key_code": "left_shift"
+                    "key_code": "left_shift",
+                    "lazy": true
                   }
                 ],
                 "to_if_alone": [

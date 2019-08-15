@@ -9,6 +9,6 @@ rules=rules.filter(v=>!ruleList.find(w=>w.description===v.description))
 rules=rules.concat(ruleList)
 file.set('profiles.0.complex_modifications.rules',rules)
 
-fs.copySync(`${__dirname}/karabiner.json`, `${__dirname}/back/karabiner-${new Date()-0}.json`)
+fs.copySync(`${__dirname}/karabiner.json`, `${__dirname}/back/karabiner-${new Date().toISOString()}.json`)
 file.save()
 console.log(`'ok': `, 'ok')

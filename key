@@ -80,11 +80,11 @@ function replace () {
   
   let clip = system_events.theClipboard()
   let x = clip[clip.length - 1]
-  if (replaceTable[x]) {
+  if (replaceTable[x]||x.match(/[a-z]/)) {
     system_events.keyCode(124)
     system_events.keyCode(51)
     
-    system_events.setTheClipboardTo(replaceTable[x])
+    system_events.setTheClipboardTo(replaceTable[x]||x.toUpperCase())
     delay(0.01)
     
     system_events.keystroke('v', { using: ['command down'] })
