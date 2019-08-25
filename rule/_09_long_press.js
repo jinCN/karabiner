@@ -7,7 +7,7 @@ let codesLetter = Array(26)
   .fill()
   .map((v, i) => String.fromCharCode('a'.charCodeAt(0) + i))
 
-let codesSymbol = Object.values({
+let codeTable = {
   ',': 'comma',
   '.': 'period',
   '/': 'slash',
@@ -19,9 +19,23 @@ let codesSymbol = Object.values({
   '=': 'equal_sign',
   '\\': 'backslash',
   '`': 'grave_accent_and_tilde'
-})
+}
+
+let codesSymbol = Object.values(codeTable)
+
+function needClose (code, shift) {
+  if (code === 'quote' || code === 'open_bracket') {
+    return true
+  }
+  if (shift === true) {
+    if (code === '9' || code === 'comma') {
+      return true
+    }
+  }
+}
 
 function template (code, shift = false, isNum = false) {
+  let isNeedClose = needClose(code,shift)
   if (shift) {
     return [
       {
@@ -35,9 +49,10 @@ function template (code, shift = false, isNum = false) {
         'repeat': false
       }],
     'to_if_held_down': [
-      { 'key_code': 'delete_or_backspace' },
       { 'key_code': 'period', modifiers: 'left_control' },
+      { 'key_code': 'delete_or_backspace' },
       { 'key_code': code, modifiers: 'shift' },
+      ...isNeedClose?[{ 'key_code': 'left_arrow'}]:[],
       { 'shell_command': 'key switch' }]
       }]
   } else {
@@ -136,9 +151,10 @@ function template (code, shift = false, isNum = false) {
           ]
         },
         'to_if_held_down': [
-          { 'key_code': 'delete_or_backspace' },
           { 'key_code': 'period', modifiers: 'left_control' },
+          { 'key_code': 'delete_or_backspace' },
           { 'key_code': code },
+          ...isNeedClose ? [{ 'key_code': 'left_arrow' }] : [],
           { 'shell_command': 'key switch' }]
       },
       {

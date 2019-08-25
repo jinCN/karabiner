@@ -85,10 +85,10 @@ function replace () {
     system_events.keyCode(51)
     
     system_events.setTheClipboardTo(replaceTable[x]||x.toUpperCase())
-    delay(0.01)
+    delay(0.05)
     
     system_events.keystroke('v', { using: ['command down'] })
-    delay(0.1)
+    delay(0.2)
     system_events.setTheClipboardTo(oldClip)
   }
   else if (replaceTable2[x]) {
@@ -96,17 +96,17 @@ function replace () {
     system_events.keyCode(51)
     
     system_events.setTheClipboardTo(replaceTable2[x])
-    delay(0.01)
+    delay(0.05)
     
     system_events.keystroke('v', { using: ['command down'] })
     delay(0.01)
     system_events.keyCode(123)
-    delay(0.1)
+    delay(0.2)
     system_events.setTheClipboardTo(oldClip)
   }
   else {
     system_events.keyCode(124)
-    delay(0.5)
+    delay(0.2)
     system_events.setTheClipboardTo(oldClip)
   }
 }

@@ -2449,11 +2449,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "comma"
@@ -2612,11 +2612,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "period"
@@ -2775,11 +2775,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "slash"
@@ -2938,11 +2938,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "semicolon"
@@ -3101,14 +3101,17 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
                   },
                   {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
                     "key_code": "quote"
+                  },
+                  {
+                    "key_code": "left_arrow"
                   },
                   {
                     "shell_command": "key switch"
@@ -3264,14 +3267,17 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
                   },
                   {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
                     "key_code": "open_bracket"
+                  },
+                  {
+                    "key_code": "left_arrow"
                   },
                   {
                     "shell_command": "key switch"
@@ -3427,11 +3433,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "close_bracket"
@@ -3590,11 +3596,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "hyphen"
@@ -3753,11 +3759,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "equal_sign"
@@ -3916,11 +3922,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "backslash"
@@ -4079,11 +4085,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "grave_accent_and_tilde"
@@ -4161,15 +4167,18 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
                   },
                   {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
                     "key_code": "comma",
                     "modifiers": "shift"
+                  },
+                  {
+                    "key_code": "left_arrow"
                   },
                   {
                     "shell_command": "key switch"
@@ -4193,11 +4202,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "period",
@@ -4225,11 +4234,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "slash",
@@ -4257,11 +4266,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "semicolon",
@@ -4289,15 +4298,18 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
                   },
                   {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
                     "key_code": "quote",
                     "modifiers": "shift"
+                  },
+                  {
+                    "key_code": "left_arrow"
                   },
                   {
                     "shell_command": "key switch"
@@ -4321,15 +4333,18 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
                   },
                   {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
                     "key_code": "open_bracket",
                     "modifiers": "shift"
+                  },
+                  {
+                    "key_code": "left_arrow"
                   },
                   {
                     "shell_command": "key switch"
@@ -4353,11 +4368,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "close_bracket",
@@ -4385,11 +4400,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "hyphen",
@@ -4417,11 +4432,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "equal_sign",
@@ -4449,11 +4464,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "backslash",
@@ -4481,11 +4496,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "grave_accent_and_tilde",
@@ -4594,11 +4609,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "0"
@@ -4757,11 +4772,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "1"
@@ -4920,11 +4935,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "2"
@@ -5083,11 +5098,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "3"
@@ -5246,11 +5261,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "4"
@@ -5409,11 +5424,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "5"
@@ -5572,11 +5587,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "6"
@@ -5735,11 +5750,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "7"
@@ -5898,11 +5913,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "8"
@@ -6061,11 +6076,11 @@
                 },
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "9"
@@ -6143,11 +6158,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "0",
@@ -6175,11 +6190,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "1",
@@ -6207,11 +6222,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "2",
@@ -6239,11 +6254,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "3",
@@ -6271,11 +6286,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "4",
@@ -6303,11 +6318,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "5",
@@ -6335,11 +6350,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "6",
@@ -6367,11 +6382,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "7",
@@ -6399,11 +6414,11 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
                   },
                   {
                     "key_code": "8",
@@ -6431,15 +6446,18 @@
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "delete_or_backspace"
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": "left_control"
                   },
                   {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
                     "key_code": "9",
                     "modifiers": "shift"
+                  },
+                  {
+                    "key_code": "left_arrow"
                   },
                   {
                     "shell_command": "key switch"
