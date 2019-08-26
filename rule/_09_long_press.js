@@ -22,20 +22,29 @@ let codeTable = {
 }
 
 let codesSymbol = Object.values(codeTable)
+let lastCodeTable = {}
+let lastCodeTableR = {}
+let lastCodeTableValue = 1
 
-function needClose (code, shift) {
-  if (code === 'quote' || code === 'open_bracket') {
-    return true
+function lastCode (code, shift) {
+  if (lastCodeTable[code] === undefined) {
+    lastCodeTable[code] = lastCodeTableValue
+    lastCodeTableR[lastCodeTableValue] = code
+    lastCodeTableValue++
   }
-  if (shift === true) {
-    if (code === '9' || code === 'comma') {
-      return true
-    }
+  return lastCodeTable[code] + shift ? 10000 : 0
+}
+
+function fromLastCode (value) {
+  let shift = false
+  if (value >= 10000) {
+    shift = true
+    value -= 10000
   }
+  return { code: lastCodeTableR[value], shift }
 }
 
 function template (code, shift = false, isNum = false) {
-  let isNeedClose = needClose(code,shift)
   if (shift) {
     return [
       {
@@ -52,7 +61,6 @@ function template (code, shift = false, isNum = false) {
       { 'key_code': 'period', modifiers: 'left_control' },
       { 'key_code': 'delete_or_backspace' },
       { 'key_code': code, modifiers: 'shift' },
-      ...isNeedClose?[{ 'key_code': 'left_arrow'}]:[],
       { 'shell_command': 'key switch' }]
       }]
   } else {
@@ -77,6 +85,11 @@ function template (code, shift = false, isNum = false) {
             'set_variable': {
               'name': name,
               'value': 1
+            }
+          }, {
+            'set_variable': {
+              'name': 'last_code',
+              'value': lastCode(code, false)
             }
           }],
         'parameters': {
@@ -154,7 +167,6 @@ function template (code, shift = false, isNum = false) {
           { 'key_code': 'period', modifiers: 'left_control' },
           { 'key_code': 'delete_or_backspace' },
           { 'key_code': code },
-          ...isNeedClose ? [{ 'key_code': 'left_arrow' }] : [],
           { 'shell_command': 'key switch' }]
       },
       {
