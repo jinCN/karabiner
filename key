@@ -10,7 +10,17 @@ function run (argv) {
   }
 }
 
-let funcs = { press, type, delayType, input, replace, delay, menu: menu_item,switch:swi }
+let funcs = {
+  press,
+  type,
+  delayType,
+  input,
+  inputSymbol,
+  replace,
+  delay,
+  menu: menu_item,
+  switch: swi
+}
 // How to use:
 //   1. Open "Script Editor" (requires OS X 10.10 Yosemite)
 //   2. Change the language from "AppleScript" to "JavaScript"
@@ -115,6 +125,17 @@ function input (text) {
   let oldClip = system_events.theClipboard()
   system_events.setTheClipboardTo(text)
   system_events.keystroke('v', { using: ['command down'] })
+  delay(0.1)
+  system_events.setTheClipboardTo(oldClip)
+}
+
+function inputSymbol (text) {
+  let oldClip = system_events.theClipboard()
+  system_events.setTheClipboardTo(text)
+  system_events.keystroke('v', { using: ['command down'] })
+  if (text.length > 1 && text !== '……' && text !== '——') {
+    system_events.keyCode(123)
+  }
   delay(0.1)
   system_events.setTheClipboardTo(oldClip)
 }

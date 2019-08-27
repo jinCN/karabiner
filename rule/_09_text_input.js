@@ -1,0 +1,559 @@
+const rules = require('.')
+let rule = { description: 'Long press to shift any input key' }
+rules.push(rule)
+
+const codeTable = require('./common/codeTable')
+let longPressMapping = {
+  a: '<',
+  z: '(',
+  x: '[',
+  c: '{'
+}
+let doublePressMapping = {
+  a: '>',
+  z: ')',
+  x: ']',
+  c: '}',
+  q: '?',
+  w: '_',
+  e: '&',
+  r: '|',
+  t: '~',
+  s: ',',
+  d: '.',
+  f: ':',
+  g: ';',
+  v: '\'',
+  b: '"'
+}
+let tabMapping = {
+  e: '-',
+  r: '+',
+  t: '=',
+  d: '/',
+  f: '\\',
+  g: '`',
+  c: '^',
+  v: '*'
+}
+
+function longPressOp (code, shift = false) {
+  let m1 = `12345
+qwert
+sdfg
+vb`
+  let m2 = `67890
+poiuy
+lkjh
+mn`
+  const index = m1.indexOf(code)
+  if (index !== -1) {
+    return { code: m2[index], shift }
+  }
+  if (shift === false) {
+    if (longPressMapping[code]) {
+      return codeTable.symbolToCode(longPressMapping[code])
+    }
+  }
+  return { code, shift: true }
+}
+
+function doublePressOp (code, shift = false) {
+  if (shift === false) {
+    if (doublePressMapping[code]) {
+      return codeTable.symbolToCode(doublePressMapping[code])
+    }
+  }
+  return { code, shift: true }
+}
+
+function templateTab (code) {
+  const symbol = tabMapping[code]
+  if (symbol === undefined) {
+    return []
+  }
+  const { code: tCode, shift: tShift } = codeTable.symbolToCode(symbol)
+  let tCodeInt = codeTable.codeToInt(tCode, tShift)
+  
+  return [
+    {
+      'from': {
+        'modifiers': {
+          'optional': [
+            'any'
+          ]
+        },
+        'simultaneous': [
+          {
+            'key_code': 'tab'
+          },
+          {
+            'key_code': code
+          }
+        ],
+        'simultaneous_options': {
+          'key_down_order': 'strict',
+          
+          'to_after_key_up': [
+            {
+              'set_variable': {
+                'name': 'PadFN',
+                'value': 0
+              }
+            }
+          ]
+        }
+      },
+      'parameters': {
+        'basic.simultaneous_threshold_milliseconds': 500
+      },
+      'to': [
+        {
+          'set_variable': {
+            'name': 'PadFN',
+            'value': 1
+          }
+        },
+        {
+          'set_variable': {
+            'name': 'last_code',
+            'value': tCodeInt
+          }
+        },
+        {
+          'key_code': tCode,
+          ...tShift && {
+            'modifiers': 'shift'
+          }
+        }
+      ],
+      'type': 'basic'
+    },
+    {
+      'conditions': [
+        {
+          'name': 'PadFN',
+          'type': 'variable_if',
+          'value': 1
+        }
+      ],
+      'from': {
+        'key_code': code,
+        'modifiers': {
+          'optional': [
+            'any'
+          ]
+        }
+      },
+      'to': [
+        {
+          'set_variable': {
+            'name': 'last_code',
+            'value': tCodeInt
+          }
+        },
+        {
+          'key_code': tCode,
+          ...tShift && {
+            'modifiers': 'shift'
+          }
+        }
+      
+      ],
+      'type': 'basic'
+    }
+  ]
+}
+
+function templateChineseSymbol (symbol) {
+  const replaceSymbol = codeTable.replaceTable[symbol]
+  if (replaceSymbol === undefined) return []
+  
+  const { code, shift } = codeTable.symbolToCode(symbol)
+  const codeInt = codeTable.codeToInt(code, shift)
+  
+  return [
+    {
+      'conditions': [
+        {
+          'name': 'last_code',
+          'type': 'variable_if',
+          'value': codeInt
+        }
+      ],
+      'parameters': {
+        'basic.to_if_alone_timeout_milliseconds': 300
+      },
+      'from': {
+        'key_code': 'left_shift'
+      },
+      'to': [
+        {
+          'key_code': 'left_shift'
+        }
+      ],
+      'to_if_alone': [
+        {
+          'key_code': 'delete_or_backspace'
+        },
+        {
+          'shell_command': `key inputSymbol ${replaceSymbol}`
+        }
+      ],
+      'type': 'basic'
+    }
+  ]
+}
+
+function template (code, shift = false) {
+  let codeInt = codeTable.codeToInt(code, shift)
+  const { code: dCode, shift: dShift } = doublePressOp(code, shift)
+  let dCodeInt = codeTable.codeToInt(dCode, dShift)
+  const { code: lCode, shift: lShift } = longPressOp(code, shift)
+  let lCodeInt = codeTable.codeToInt(lCode, lShift)
+  
+  return [
+    {
+      'conditions': [
+        {
+          'name': 'last_code',
+          'type': 'variable_if',
+          'value': codeInt
+        }
+      ],
+      'parameters': {
+        'basic.to_if_alone_timeout_milliseconds': 300
+      },
+      'from': {
+        'key_code': 'left_shift',
+        ...shift && {
+          'modifiers': {
+            'mandatory': 'shift'
+          }
+        }
+      },
+      'to': [
+        {
+          'key_code': 'left_shift',
+          ...shift && {
+            'modifiers': 'shift'
+          }
+        }
+      ],
+      'to_if_alone': [
+        {
+          'key_code': 'delete_or_backspace'
+        },
+        {
+          'key_code': code,
+          modifiers: 'shift'
+        }
+      ],
+      'type': 'basic'
+    },
+    {
+      'conditions': [
+        {
+          'name': 'just_pressed',
+          'type': 'variable_if',
+          'value': codeInt
+        },
+        {
+          'name': 'last_code',
+          'type': 'variable_if',
+          'value': codeInt
+        }
+      ],
+      'from': {
+        'key_code': code,
+        ...shift && {
+          'modifiers': {
+            'mandatory': 'shift'
+          }
+        }
+      },
+      'to': [
+        {
+          'key_code': code,
+          ...shift && {
+            'modifiers': 'shift'
+          },
+          'repeat': false
+        }, {
+          'set_variable': {
+            'name': 'last_code',
+            'value': codeInt
+          }
+        },
+        {
+          'set_variable': {
+            'name': 'just_pressed',
+            'value': codeInt
+          }
+        }
+      ],
+      'parameters': {
+        'basic.to_if_held_down_threshold_milliseconds': 130
+      },
+      'to_if_held_down': [
+        
+        {
+          'key_code': 'delete_or_backspace'
+        },
+        {
+          'key_code': 'delete_or_backspace'
+        },
+        {
+          'key_code': dCode,
+          ...dShift && {
+            'modifiers': 'shift'
+          }
+        },
+        {
+          'set_variable': {
+            'name': 'last_code',
+            'value': dCodeInt
+          }
+        }
+      
+      ],
+      'type': 'basic'
+    }
+    , {
+      'type': 'basic',
+      'from': {
+        'key_code': code,
+        ...shift && {
+          'modifiers': {
+            'mandatory': 'shift'
+          }
+        }
+      },
+      'to': [
+        {
+          'key_code': code,
+          ...shift && {
+            'modifiers': 'shift'
+          },
+          'repeat': false
+        }, {
+          'set_variable': {
+            'name': 'last_code',
+            'value': codeInt
+          }
+        },
+        {
+          'set_variable': {
+            'name': 'just_pressed',
+            'value': codeInt
+          }
+        }],
+      'parameters': {
+        'basic.to_delayed_action_delay_milliseconds': 200
+      },
+      'to_delayed_action': {
+        'to_if_canceled': [
+          {
+            'set_variable': {
+              'name': 'just_pressed',
+              'value': 0
+            }
+          }
+        ],
+        'to_if_invoked': [
+          {
+            'set_variable': {
+              'name': 'just_pressed',
+              'value': 0
+            }
+          }
+        ]
+      },
+      'to_if_held_down': [
+        {
+          'key_code': 'delete_or_backspace'
+        },
+        {
+          'key_code': lCode,
+          ...lShift && {
+            'modifiers': 'shift'
+          }
+        },
+        {
+          'set_variable': {
+            'name': 'last_code',
+            'value': lCodeInt
+          }
+        }
+      ]
+    }
+  ]
+}
+
+function templateLetter (code) {
+  let name = `double_press-${code}`
+  return [
+    {
+      'conditions': [
+        {
+          'name': name,
+          'type': 'variable_if',
+          'value': 1
+        }
+      ],
+      'from': {
+        'key_code': code
+      },
+      'to': [
+        {
+          'key_code': code,
+          'repeat': false
+        }, {
+          'set_variable': {
+            'name': name,
+            'value': 1
+          }
+        }],
+      'parameters': {
+        'basic.to_if_held_down_threshold_milliseconds': 180
+      },
+      'to_if_held_down': [
+        {
+          'key_code': 'delete_or_backspace'
+        },
+        {
+          'key_code': 'delete_or_backspace'
+        },
+        {
+          'key_code': code,
+          'modifiers': 'left_shift'
+        },
+        {
+          'set_variable': {
+            'name': name,
+            'value': 0
+          }
+        }
+      ],
+      'type': 'basic'
+    }, {
+      conditions: [
+        {
+          'type': 'input_source_unless',
+          'input_sources': [
+            {
+              'language': 'zh',
+              'input_source_id': 'sogou',
+              'input_mode_id': 'sogou'
+            }
+          ]
+        }
+      ],
+      'type': 'basic',
+      'from': {
+        'key_code': code
+      },
+      'to': [
+        {
+          'key_code': code,
+          'repeat': false
+        }, {
+          'set_variable': {
+            'name': name,
+            'value': 1
+          }
+        }],
+      'parameters': {
+        'basic.to_delayed_action_delay_milliseconds': 200
+      },
+      'to_delayed_action': {
+        'to_if_canceled': [
+          {
+            'set_variable': {
+              'name': name,
+              'value': 0
+            }
+          }
+        ],
+        'to_if_invoked': [
+          {
+            'set_variable': {
+              'name': name,
+              'value': 0
+            }
+          }
+        ]
+      },
+      'to_if_held_down': [
+        {
+          'key_code': 'delete_or_backspace'
+        },
+        {
+          'key_code': 'f12',
+          'modifiers': 'left_shift'
+        },
+        { 'shell_command': `key type ${code}` }]
+    },
+    {
+      conditions: [
+        {
+          'type': 'input_source_unless',
+          'input_sources': [
+            {
+              'language': 'zh',
+              'input_source_id': 'sogou',
+              'input_mode_id': 'sogou'
+            }
+          ]
+        }
+      ],
+      'type': 'basic',
+      'from': {
+        'key_code': code
+      },
+      'to': [
+        {
+          'key_code': code,
+          'repeat': false
+        }, {
+          'set_variable': {
+            'name': name,
+            'value': 1
+          }
+        }],
+      'parameters': {
+        'basic.to_delayed_action_delay_milliseconds': 300
+      },
+      'to_delayed_action': {
+        'to_if_canceled': [
+          {
+            'set_variable': {
+              'name': name,
+              'value': 0
+            }
+          }
+        ],
+        'to_if_invoked': [
+          {
+            'set_variable': {
+              'name': name,
+              'value': 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+  
+}
+
+rule.manipulators = []
+Object.keys(tabMapping).map(v => rule.manipulators.push(...templateTab(v)))
+codeTable.chineseSymbols.map(v => rule.manipulators.push(...templateChineseSymbol(v)))
+codeTable.codesAll.map(v => rule.manipulators.push(...template(v, true)))
+codeTable.codesAll.map(v => rule.manipulators.push(...template(v)))
+//codesSymbol.map(v => rule.manipulators.push(...template(v)))
+//codesSymbol.map(v => rule.manipulators.push(...template(v, true)))
+//codesNum.map(v => rule.manipulators.push(...template(v, false, true)))
+//codesNum.map(v => rule.manipulators.push(...template(v, true, true)))
+//codesLetter.map(v => rule.manipulators.push(...templateLetter(v)))
