@@ -15,6 +15,250 @@
         },
         "rules": [
           {
+            "description": "left_command+esc to sleep",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "escape",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "consumer_key_code": "power",
+                    "modifiers": [
+                      "left_command",
+                      "left_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "sample: left_command*2 to sleep",
+            "sample_manipulators": [
+              {
+                "conditions": [
+                  {
+                    "name": "left_command pressed",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "left_command"
+                },
+                "to": [
+                  {
+                    "consumer_key_code": "power",
+                    "modifiers": [
+                      "left_command",
+                      "left_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "left_command",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "left_command pressed",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "left_command"
+                  }
+                ],
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "left_command pressed",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "left_command pressed",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "left_option*2 to switch back, left_option*1 to switch next",
+            "bak_manipulators": [
+              {
+                "conditions": [
+                  {
+                    "name": "left_option pressed",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "left_option"
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "left_option pressed",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "left_option"
+                },
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 400
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "left_option pressed",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "left_option",
+                    "lazy": true
+                  }
+                ],
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "left_option pressed",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "key_code": "grave_accent_and_tilde",
+                      "modifiers": [
+                        "left_command",
+                        "left_shift"
+                      ]
+                    },
+                    {
+                      "set_variable": {
+                        "name": "left_option pressed",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "long esc to restart chrome",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "escape"
+                },
+                "parameters": {
+                  "basic.to_if_alone_timeout_milliseconds": 1000,
+                  "basic.to_if_held_down_threshold_milliseconds": 1000
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "escape"
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "shell_command": "pkill 'Google Chrome';sleep 1;open -a 'Google Chrome'"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "left_command to change input method",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "left_command"
+                },
+                "to": [
+                  {
+                    "key_code": "left_command",
+                    "lazy": true
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "right_shift"
+                  },
+                  {
+                    "key_code": "f12"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "left_shift to replace by rule",
+            "manipulators1": [
+              {
+                "parameters": {
+                  "basic.to_if_alone_timeout_milliseconds": 300
+                },
+                "from": {
+                  "key_code": "left_shift"
+                },
+                "to": [
+                  {
+                    "key_code": "left_shift"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "shell_command": "key replace"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "arrow_mode[space as trigger key]",
             "manipulators": [
               {
@@ -683,9 +927,7 @@
                     }
                   },
                   {
-                    "mouse_key": {
-                      "speed_multiplier": 0.5
-                    }
+                    "key_code": "delete_or_backspace"
                   }
                 ],
                 "type": "basic"
@@ -708,9 +950,74 @@
                 },
                 "to": [
                   {
-                    "mouse_key": {
-                      "speed_multiplier": 0.5
+                    "key_code": "delete_or_backspace"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "spacebar"
+                    },
+                    {
+                      "key_code": "t"
                     }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "SpaceFN",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 500
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "SpaceFN",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "delete_forward"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "SpaceFN",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_forward"
                   }
                 ],
                 "type": "basic"
@@ -1258,360 +1565,8 @@
             ]
           },
           {
-            "description": "left_command+esc to sleep",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "escape",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "consumer_key_code": "power",
-                    "modifiers": [
-                      "left_command",
-                      "left_option"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "sample: left_command*2 to sleep",
-            "sample_manipulators": [
-              {
-                "conditions": [
-                  {
-                    "name": "left_command pressed",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "left_command"
-                },
-                "to": [
-                  {
-                    "consumer_key_code": "power",
-                    "modifiers": [
-                      "left_command",
-                      "left_option"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "left_command",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "left_command pressed",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "left_command"
-                  }
-                ],
-                "to_delayed_action": {
-                  "to_if_canceled": [
-                    {
-                      "set_variable": {
-                        "name": "left_command pressed",
-                        "value": 0
-                      }
-                    }
-                  ],
-                  "to_if_invoked": [
-                    {
-                      "set_variable": {
-                        "name": "left_command pressed",
-                        "value": 0
-                      }
-                    }
-                  ]
-                },
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "left_option*2 to switch back, left_option*1 to switch next",
-            "bak_manipulators": [
-              {
-                "conditions": [
-                  {
-                    "name": "left_option pressed",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "left_option"
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "left_option pressed",
-                      "value": 0
-                    }
-                  },
-                  {
-                    "key_code": "grave_accent_and_tilde",
-                    "modifiers": [
-                      "left_command"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "left_option"
-                },
-                "parameters": {
-                  "basic.to_delayed_action_delay_milliseconds": 400
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "left_option pressed",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "left_option",
-                    "lazy": true
-                  }
-                ],
-                "to_delayed_action": {
-                  "to_if_canceled": [
-                    {
-                      "set_variable": {
-                        "name": "left_option pressed",
-                        "value": 0
-                      }
-                    }
-                  ],
-                  "to_if_invoked": [
-                    {
-                      "key_code": "grave_accent_and_tilde",
-                      "modifiers": [
-                        "left_command",
-                        "left_shift"
-                      ]
-                    },
-                    {
-                      "set_variable": {
-                        "name": "left_option pressed",
-                        "value": 0
-                      }
-                    }
-                  ]
-                },
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "long esc to restart chrome",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "escape"
-                },
-                "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 1000,
-                  "basic.to_if_held_down_threshold_milliseconds": 1000
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "to_if_held_down": [
-                  {
-                    "shell_command": "pkill 'Google Chrome';sleep 0.5;open -a 'Google Chrome'"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "left_command to change input method",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "left_command"
-                },
-                "to": [
-                  {
-                    "key_code": "left_command",
-                    "lazy": true
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "right_shift"
-                  },
-                  {
-                    "key_code": "f12"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "pad_mode['tab' as trigger key]",
             "manipulators": [
-              {
-                "from": {
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  },
-                  "simultaneous": [
-                    {
-                      "key_code": "tab"
-                    },
-                    {
-                      "key_code": "q"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "key_down_order": "strict",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "PadFN",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  }
-                },
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 500
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "PadFN",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "delete_or_backspace"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "PadFN",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_or_backspace"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  },
-                  "simultaneous": [
-                    {
-                      "key_code": "tab"
-                    },
-                    {
-                      "key_code": "w"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "key_down_order": "strict",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "PadFN",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  }
-                },
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 500
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "PadFN",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "PadFN",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "w",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              },
               {
                 "from": {
                   "modifiers": {
@@ -2275,104 +2230,6 @@
             ]
           },
           {
-            "description": "del_mode[ ']' as trigger key, for hhkb]",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "name": "double_press-close_bracket",
-                    "type": "variable_unless",
-                    "value": 1
-                  },
-                  {
-                    "identifiers": [
-                      {
-                        "description": "hhkb",
-                        "product_id": 256,
-                        "vendor_id": 2131
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "from": {
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  },
-                  "simultaneous": [
-                    {
-                      "key_code": "close_bracket"
-                    },
-                    {
-                      "key_code": "delete_or_backspace"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "key_down_order": "strict",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "DelFN",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  }
-                },
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 500
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "DelFN",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "DelFN",
-                    "type": "variable_if",
-                    "value": 1
-                  },
-                  {
-                    "identifiers": [
-                      {
-                        "description": "hhkb",
-                        "product_id": 256,
-                        "vendor_id": 2131
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "delete_or_backspace",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "del_mode[ '=' as trigger key, except for hhkb]",
             "manipulators": [
               {
@@ -2583,7 +2440,7 @@
                       "key_code": "tab"
                     },
                     {
-                      "key_code": "e"
+                      "key_code": "w"
                     }
                   ],
                   "simultaneous_options": {
@@ -2629,7 +2486,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "e",
+                  "key_code": "w",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -2645,6 +2502,86 @@
                   },
                   {
                     "key_code": "hyphen"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "tab"
+                    },
+                    {
+                      "key_code": "e"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "PadFN",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 500
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "PadFN",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "last_code",
+                      "value": 10045
+                    }
+                  },
+                  {
+                    "key_code": "equal_sign",
+                    "modifiers": "shift"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "PadFN",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "last_code",
+                      "value": 10045
+                    }
+                  },
+                  {
+                    "key_code": "equal_sign",
+                    "modifiers": "shift"
                   }
                 ],
                 "type": "basic"
@@ -2689,12 +2626,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10045
+                      "value": 45
                     }
                   },
                   {
-                    "key_code": "equal_sign",
-                    "modifiers": "shift"
+                    "key_code": "equal_sign"
                   }
                 ],
                 "type": "basic"
@@ -2719,12 +2655,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10045
+                      "value": 45
                     }
                   },
                   {
-                    "key_code": "equal_sign",
-                    "modifiers": "shift"
+                    "key_code": "equal_sign"
                   }
                 ],
                 "type": "basic"
@@ -2769,11 +2704,12 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 45
+                      "value": 10009
                     }
                   },
                   {
-                    "key_code": "equal_sign"
+                    "key_code": "8",
+                    "modifiers": "shift"
                   }
                 ],
                 "type": "basic"
@@ -2798,89 +2734,12 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 45
+                      "value": 10009
                     }
                   },
                   {
-                    "key_code": "equal_sign"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  },
-                  "simultaneous": [
-                    {
-                      "key_code": "tab"
-                    },
-                    {
-                      "key_code": "d"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "key_down_order": "strict",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "PadFN",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  }
-                },
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 500
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "PadFN",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "set_variable": {
-                      "name": "last_code",
-                      "value": 39
-                    }
-                  },
-                  {
-                    "key_code": "slash"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "PadFN",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "last_code",
-                      "value": 39
-                    }
-                  },
-                  {
-                    "key_code": "slash"
+                    "key_code": "8",
+                    "modifiers": "shift"
                   }
                 ],
                 "type": "basic"
@@ -2925,11 +2784,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 46
+                      "value": 39
                     }
                   },
                   {
-                    "key_code": "backslash"
+                    "key_code": "slash"
                   }
                 ],
                 "type": "basic"
@@ -2954,11 +2813,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 46
+                      "value": 39
                     }
                   },
                   {
-                    "key_code": "backslash"
+                    "key_code": "slash"
                   }
                 ],
                 "type": "basic"
@@ -3003,11 +2862,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 47
+                      "value": 46
                     }
                   },
                   {
-                    "key_code": "grave_accent_and_tilde"
+                    "key_code": "backslash"
                   }
                 ],
                 "type": "basic"
@@ -3032,11 +2891,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 47
+                      "value": 46
                     }
                   },
                   {
-                    "key_code": "grave_accent_and_tilde"
+                    "key_code": "backslash"
                   }
                 ],
                 "type": "basic"
@@ -3161,12 +3020,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10009
+                      "value": 47
                     }
                   },
                   {
-                    "key_code": "8",
-                    "modifiers": "shift"
+                    "key_code": "grave_accent_and_tilde"
                   }
                 ],
                 "type": "basic"
@@ -3191,12 +3049,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10009
+                      "value": 47
                     }
                   },
                   {
-                    "key_code": "8",
-                    "modifiers": "shift"
+                    "key_code": "grave_accent_and_tilde"
                   }
                 ],
                 "type": "basic"
@@ -18169,30 +18026,6 @@
                     }
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "description": "left_shift to replace by rule",
-            "manipulators1": [
-              {
-                "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 300
-                },
-                "from": {
-                  "key_code": "left_shift"
-                },
-                "to": [
-                  {
-                    "key_code": "left_shift"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "shell_command": "key replace"
-                  }
-                ],
-                "type": "basic"
               }
             ]
           },
