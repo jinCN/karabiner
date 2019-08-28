@@ -33,7 +33,7 @@ let newRules = [
           }
         },
         "parameters": {
-          "basic.simultaneous_threshold_milliseconds": 500
+          "basic.simultaneous_threshold_milliseconds": 800
         },
         "to": [
           {
@@ -100,7 +100,7 @@ let newRules = [
           }
         },
         "parameters": {
-          "basic.simultaneous_threshold_milliseconds": 500
+          "basic.simultaneous_threshold_milliseconds": 800
         },
         "to": [
           {
@@ -167,7 +167,7 @@ let newRules = [
           }
         },
         "parameters": {
-          "basic.simultaneous_threshold_milliseconds": 500
+          "basic.simultaneous_threshold_milliseconds": 800
         },
         "to": [
           {
@@ -234,7 +234,7 @@ let newRules = [
           }
         },
         "parameters": {
-          "basic.simultaneous_threshold_milliseconds": 500
+          "basic.simultaneous_threshold_milliseconds": 800
         },
         "to": [
           {
@@ -301,7 +301,7 @@ let newRules = [
           }
         },
         "parameters": {
-          "basic.simultaneous_threshold_milliseconds": 500
+          "basic.simultaneous_threshold_milliseconds": 800
         },
         "to": [
           {
@@ -368,7 +368,7 @@ let newRules = [
           }
         },
         "parameters": {
-          "basic.simultaneous_threshold_milliseconds": 500
+          "basic.simultaneous_threshold_milliseconds": 800
         },
         "to": [
           {
@@ -435,7 +435,7 @@ let newRules = [
           }
         },
         "parameters": {
-          "basic.simultaneous_threshold_milliseconds": 500
+          "basic.simultaneous_threshold_milliseconds": 800
         },
         "to": [
           {
@@ -502,7 +502,7 @@ let newRules = [
           }
         },
         "parameters": {
-          "basic.simultaneous_threshold_milliseconds": 500
+          "basic.simultaneous_threshold_milliseconds": 800
         },
         "to": [
           {
@@ -569,7 +569,7 @@ let newRules = [
           }
         },
         "parameters": {
-          "basic.simultaneous_threshold_milliseconds": 500
+          "basic.simultaneous_threshold_milliseconds": 800
         },
         "to": [
           {
@@ -636,7 +636,7 @@ let newRules = [
           }
         },
         "parameters": {
-          "basic.simultaneous_threshold_milliseconds": 500
+          "basic.simultaneous_threshold_milliseconds": 800
         },
         "to": [
           {
