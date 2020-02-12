@@ -5,52 +5,39 @@ rules.push(rule)
 
 const codeTable = require('./common/codeTable')
 let longPressMapping = {
-  a: '<',
-  z: '(',
-  x: '[',
-  c: '{'
+  a: ',',
+  s: '.',
+  d: '?',
+  f: ':',
+  q: '_',
+  w: '-',
+  e: '+',
+  r: '=',
+  t: '>',
+  g: ';',
+  x: '\\',
+  z: '/',
+  c: '|',
+  v: '&',
+  b: '~',
+  y: '<',
+  h: '*'
 }
 let doublePressMapping = {
-  a: '>',
-  z: ')',
-  x: ']',
-  c: '}',
-  q: '?',
-  w: '_',
-  e: '&',
-  r: '|',
-  t: '~',
-  s: ',',
-  d: '.',
-  f: ':',
-  g: ';',
-  v: '\'',
-  b: '"'
 }
 let tabMapping = {
-  e: '-',
-  r: '+',
-  t: '=',
-  d: '`',
-  f: '/',
-  g: '\\',
-  v: '^',
-  b: '*'
+  w: '(',
+  s: ')',
+  e: '[',
+  d: ']',
+  r: '{',
+  f: '}',
+  t: '\'',
+  g: '"',
+  y: '`'
 }
 
 function longPressOp (code, shift = false) {
-  let m1 = `12345
-qwert
-sdfg
-vb`
-  let m2 = `67890
-poiuy
-lkjh
-mn`
-  const index = m1.indexOf(code)
-  if (index !== -1) {
-    return { code: m2[index], shift }
-  }
   if (shift === false) {
     if (longPressMapping[code]) {
       return codeTable.symbolToCode(longPressMapping[code])
@@ -75,7 +62,7 @@ function templateTab (code) {
   }
   const { code: tCode, shift: tShift } = codeTable.symbolToCode(symbol)
   let tCodeInt = codeTable.codeToInt(tCode, tShift)
-  
+
   return [
     {
       'from': {
@@ -94,7 +81,7 @@ function templateTab (code) {
         ],
         'simultaneous_options': {
           'key_down_order': 'strict',
-          
+
           'to_after_key_up': [
             {
               'set_variable': {
@@ -159,7 +146,7 @@ function templateTab (code) {
             'modifiers': 'shift'
           }
         }
-      
+
       ],
       'type': 'basic'
     }
@@ -169,10 +156,10 @@ function templateTab (code) {
 function templateChineseSymbol (symbol) {
   const replaceSymbol = codeTable.replaceTable[symbol]
   if (replaceSymbol === undefined) return []
-  
+
   const { code, shift } = codeTable.symbolToCode(symbol)
   const codeInt = codeTable.codeToInt(code, shift)
-  
+
   return [
     {
       'conditions': [
@@ -212,7 +199,7 @@ function template (code, shift = false) {
   let dCodeInt = codeTable.codeToInt(dCode, dShift)
   const { code: lCode, shift: lShift } = longPressOp(code, shift)
   let lCodeInt = codeTable.codeToInt(lCode, lShift)
-  
+
   return [
     ...shift ? [] : [
       {
@@ -226,9 +213,9 @@ function template (code, shift = false) {
         'from': {
           'pointing_button': 'button2'
         },
-      
+
         'to': [
-        
+
           {
             'key_code': 'delete_or_backspace'
           },
@@ -244,9 +231,9 @@ function template (code, shift = false) {
               'value': lCodeInt
             }
           }
-      
+
         ],
-      
+
         'type': 'basic'
       },
       {
@@ -282,7 +269,7 @@ function template (code, shift = false) {
         'type': 'basic'
       }
     ],
-    
+
     {// shift 替换最后输入
       'conditions': [
         {
@@ -358,10 +345,10 @@ function template (code, shift = false) {
         }
       ],
       'parameters': {
-        'basic.to_if_held_down_threshold_milliseconds': 130
+        'basic.to_if_held_down_threshold_milliseconds': 200
       },
       'to_if_held_down': [
-        
+
         {
           'key_code': 'delete_or_backspace'
         },
@@ -380,7 +367,7 @@ function template (code, shift = false) {
             'value': dCodeInt
           }
         }
-      
+
       ],
       'type': 'basic'
     },
@@ -415,7 +402,7 @@ function template (code, shift = false) {
         }],
       'parameters': {
         'basic.to_delayed_action_delay_milliseconds': 200,
-        'basic.to_if_held_down_threshold_milliseconds': 230
+        'basic.to_if_held_down_threshold_milliseconds': 200
       },
       'to_delayed_action': {
         'to_if_canceled': [
@@ -453,7 +440,7 @@ function template (code, shift = false) {
         }
       ]
     },
-    
+
   ]
 }
 
@@ -465,7 +452,12 @@ codeTable.codesAll.map(v => rule.manipulators.push(...template(v)))
 rule.manipulators.push(...[
   {
     'from': {
-      'pointing_button': 'button2'
+      'pointing_button': 'button2',
+      'modifiers': {
+        'optional': [
+          'any'
+        ]
+      }
     },
     to: [
       {
