@@ -100,21 +100,23 @@ let rawReplaceStr = `;；
 <《
 [【
 {「
+\\ 、
 `
 let rawReplaceTable = {}
 rawReplaceStr.split('\n').forEach(v => {
   rawReplaceTable[v[0]] = v.substring(1)
 })
-let rawReplaceAllowSpaceStr = `.
-,
-:
-;
-!
-?
+let rawReplaceAllowSpaceStr = `.1
+,0
+:1
+;0
+!0
+?1
+\\1
 `
 let rawReplaceAllowSpaceTable = {}
 rawReplaceAllowSpaceStr.split('\n').forEach(v => {
-  rawReplaceAllowSpaceTable[v[0]] = 1
+  rawReplaceAllowSpaceTable[v[0]] = v.substring(1)
 })
 
 function rawReplaceText (text) {
@@ -124,10 +126,22 @@ function rawReplaceText (text) {
     let newChar = rawReplaceTable[char]
     if (newChar) {
       // 若原符号允许后接空格，那么忽略后一个可能的空格
-      if (rawReplaceAllowSpaceTable[char] && text[i + 1] === ' ') {
-        i += 1
+      if (rawReplaceAllowSpaceTable[char]) {
+        if (text[i + 1] === ' ') {
+          i += 1
+          ret += newChar
+        } else if (rawReplaceAllowSpaceTable[char] === '0') {
+          ret += newChar
+        } else if(i + 1 === text.length ||
+          text[i + 1] === '\n' ||
+          text[i + 1] === '\r'){
+          ret += newChar
+        }else {
+          ret += char
+        }
+      } else {
+        ret += newChar
       }
-      ret += newChar
     } else {
       ret += char
     }
@@ -150,26 +164,25 @@ function cutAndReplace () {
   let clip = system_events.theClipboard()
   let needSelection=false
   if (clip === oldClip) {
-    needSelection=true
-    system_events.keyCode(124, { using: ['command down'] })
+    needSelection = true
+    system_events.keyCode(123, { using: ['command down'] })
+    system_events.keyCode(124)
+    system_events.keyCode(124)
 
-    system_events.keyCode(49)
-    system_events.keyCode(123)
-    system_events.keyCode(123, { using: ['command down', 'shift down'] })
+    system_events.keyCode(124, { using: ['command down', 'shift down'] })
     system_events.keystroke('x', { using: ['command down'] })
     delay(0.05)
 
     clip = system_events.theClipboard()
+
   }
+
   let newText = rawReplaceText(clip)
   system_events.setTheClipboardTo(newText)
-  delay(0.05)
+  delay(0.2)
 
   system_events.keystroke('v', { using: ['command down'] })
-  if (needSelection) {
-    system_events.keyCode(124, { using: ['command down', 'shift down'] })
-    system_events.keystroke('x', { using: ['command down'] })
-  }
+
   delay(0.2)
   system_events.setTheClipboardTo(oldClip)
 }
