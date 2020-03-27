@@ -5,8 +5,8 @@ rules.push(rule)
 
 const codeTable = require('./common/codeTable')
 let longPressMapping = {
-  a: ',',
-  s: '.',
+  a: '.',
+  s: ',',
   d: '?',
   f: ':',
   q: '_',
@@ -26,15 +26,15 @@ let longPressMapping = {
 let doublePressMapping = {
 }
 let tabMapping = {
-  w: '(',
-  s: ')',
-  e: '[',
-  d: ']',
-  r: '{',
-  f: '}',
-  t: '\'',
-  g: '"',
-  y: '`'
+  r: '(',
+  t: ')',
+  f: '[',
+  g: ']',
+  c: '{',
+  v: '}',
+  d: '\'',
+  e: '"',
+  w: '`'
 }
 
 function longPressOp (code, shift = false) {
@@ -185,7 +185,7 @@ function templateChineseSymbol (symbol) {
           'key_code': 'delete_or_backspace'
         },
         {
-          'shell_command': `key inputSymbol ${replaceSymbol}`
+          'shell_command': `~/.config/karabiner/key inputSymbol ${replaceSymbol}`
         }
       ],
       'type': 'basic'

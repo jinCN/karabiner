@@ -24,7 +24,7 @@ let newRules = [
             }
           },
           {
-            'shell_command': `key selectAndReplace`
+            'shell_command': `~/.config/karabiner/key selectAndReplace`
           }
         ],
         "type": "basic"
@@ -67,7 +67,7 @@ let newRules = [
           ],
           "to_if_invoked": [
             {
-              'shell_command': `key selectAndReplace`
+              'shell_command': `~/.config/karabiner/key selectAndReplace`
             },
             {
               'set_variable': {
