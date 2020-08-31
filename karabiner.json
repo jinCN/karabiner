@@ -2366,11 +2366,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10010
+                      "value": 10038
                     }
                   },
                   {
-                    "key_code": "9",
+                    "key_code": "period",
                     "modifiers": "shift"
                   }
                 ],
@@ -2396,11 +2396,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10010
+                      "value": 10038
                     }
                   },
                   {
-                    "key_code": "9",
+                    "key_code": "period",
                     "modifiers": "shift"
                   }
                 ],
@@ -2526,11 +2526,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 42
+                      "value": 40
                     }
                   },
                   {
-                    "key_code": "open_bracket"
+                    "key_code": "semicolon"
                   }
                 ],
                 "type": "basic"
@@ -2555,11 +2555,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 42
+                      "value": 40
                     }
                   },
                   {
-                    "key_code": "open_bracket"
+                    "key_code": "semicolon"
                   }
                 ],
                 "type": "basic"
@@ -2654,7 +2654,7 @@
                       "key_code": "tab"
                     },
                     {
-                      "key_code": "c"
+                      "key_code": "b"
                     }
                   ],
                   "simultaneous_options": {
@@ -2682,11 +2682,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10042
+                      "value": 10047
                     }
                   },
                   {
-                    "key_code": "open_bracket",
+                    "key_code": "grave_accent_and_tilde",
                     "modifiers": "shift"
                   }
                 ],
@@ -2701,7 +2701,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "c",
+                  "key_code": "b",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -2712,11 +2712,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10042
+                      "value": 10047
                     }
                   },
                   {
-                    "key_code": "open_bracket",
+                    "key_code": "grave_accent_and_tilde",
                     "modifiers": "shift"
                   }
                 ],
@@ -2814,84 +2814,6 @@
                       "key_code": "tab"
                     },
                     {
-                      "key_code": "d"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "key_down_order": "strict",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "PadFN",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  }
-                },
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 700
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "PadFN",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "set_variable": {
-                      "name": "last_code",
-                      "value": 41
-                    }
-                  },
-                  {
-                    "key_code": "quote"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "PadFN",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "last_code",
-                      "value": 41
-                    }
-                  },
-                  {
-                    "key_code": "quote"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  },
-                  "simultaneous": [
-                    {
-                      "key_code": "tab"
-                    },
-                    {
                       "key_code": "e"
                     }
                   ],
@@ -2920,11 +2842,11 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10041
+                      "value": 10037
                     }
                   },
                   {
-                    "key_code": "quote",
+                    "key_code": "comma",
                     "modifiers": "shift"
                   }
                 ],
@@ -2950,11 +2872,91 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10041
+                      "value": 10037
                     }
                   },
                   {
-                    "key_code": "quote",
+                    "key_code": "comma",
+                    "modifiers": "shift"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "tab"
+                    },
+                    {
+                      "key_code": "q"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "PadFN",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 700
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "PadFN",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "last_code",
+                      "value": 10008
+                    }
+                  },
+                  {
+                    "key_code": "7",
+                    "modifiers": "shift"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "PadFN",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "last_code",
+                      "value": 10008
+                    }
+                  },
+                  {
+                    "key_code": "7",
                     "modifiers": "shift"
                   }
                 ],
@@ -3000,11 +3002,12 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 47
+                      "value": 10046
                     }
                   },
                   {
-                    "key_code": "grave_accent_and_tilde"
+                    "key_code": "backslash",
+                    "modifiers": "shift"
                   }
                 ],
                 "type": "basic"
@@ -3029,11 +3032,12 @@
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 47
+                      "value": 10046
                     }
                   },
                   {
-                    "key_code": "grave_accent_and_tilde"
+                    "key_code": "backslash",
+                    "modifiers": "shift"
                   }
                 ],
                 "type": "basic"
@@ -13156,13 +13160,13 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "grave_accent_and_tilde",
+                    "key_code": "8",
                     "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10047
+                      "value": 10009
                     }
                   }
                 ],
@@ -13186,13 +13190,13 @@
                 },
                 "to": [
                   {
-                    "key_code": "grave_accent_and_tilde",
+                    "key_code": "8",
                     "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10047
+                      "value": 10009
                     }
                   }
                 ],
@@ -13330,13 +13334,13 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "grave_accent_and_tilde",
+                    "key_code": "8",
                     "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10047
+                      "value": 10009
                     }
                   }
                 ]
@@ -13357,13 +13361,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "backslash",
-                    "modifiers": "shift"
+                    "key_code": "grave_accent_and_tilde"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10046
+                      "value": 47
                     }
                   }
                 ],
@@ -13387,13 +13390,12 @@
                 },
                 "to": [
                   {
-                    "key_code": "backslash",
-                    "modifiers": "shift"
+                    "key_code": "grave_accent_and_tilde"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10046
+                      "value": 47
                     }
                   }
                 ],
@@ -13531,13 +13533,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "backslash",
-                    "modifiers": "shift"
+                    "key_code": "grave_accent_and_tilde"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10046
+                      "value": 47
                     }
                   }
                 ]
@@ -14161,12 +14162,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "semicolon"
+                    "key_code": "open_bracket"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 40
+                      "value": 42
                     }
                   }
                 ],
@@ -14190,12 +14191,12 @@
                 },
                 "to": [
                   {
-                    "key_code": "semicolon"
+                    "key_code": "open_bracket"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 40
+                      "value": 42
                     }
                   }
                 ],
@@ -14333,12 +14334,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "semicolon"
+                    "key_code": "open_bracket"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 40
+                      "value": 42
                     }
                   }
                 ]
@@ -14359,13 +14360,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "8",
-                    "modifiers": "shift"
+                    "key_code": "slash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10009
+                      "value": 39
                     }
                   }
                 ],
@@ -14389,13 +14389,12 @@
                 },
                 "to": [
                   {
-                    "key_code": "8",
-                    "modifiers": "shift"
+                    "key_code": "slash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10009
+                      "value": 39
                     }
                   }
                 ],
@@ -14533,13 +14532,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "8",
-                    "modifiers": "shift"
+                    "key_code": "slash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10009
+                      "value": 39
                     }
                   }
                 ]
@@ -16765,13 +16763,13 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "period",
+                    "key_code": "9",
                     "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10038
+                      "value": 10010
                     }
                   }
                 ],
@@ -16795,13 +16793,13 @@
                 },
                 "to": [
                   {
-                    "key_code": "period",
+                    "key_code": "9",
                     "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10038
+                      "value": 10010
                     }
                   }
                 ],
@@ -16939,13 +16937,13 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "period",
+                    "key_code": "9",
                     "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10038
+                      "value": 10010
                     }
                   }
                 ]
@@ -17167,13 +17165,13 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "7",
+                    "key_code": "open_bracket",
                     "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10008
+                      "value": 10042
                     }
                   }
                 ],
@@ -17197,13 +17195,13 @@
                 },
                 "to": [
                   {
-                    "key_code": "7",
+                    "key_code": "open_bracket",
                     "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10008
+                      "value": 10042
                     }
                   }
                 ],
@@ -17341,13 +17339,13 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "7",
+                    "key_code": "open_bracket",
                     "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10008
+                      "value": 10042
                     }
                   }
                 ]
@@ -17566,12 +17564,13 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "backslash"
+                    "key_code": "quote",
+                    "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 46
+                      "value": 10041
                     }
                   }
                 ],
@@ -17595,12 +17594,13 @@
                 },
                 "to": [
                   {
-                    "key_code": "backslash"
+                    "key_code": "quote",
+                    "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 46
+                      "value": 10041
                     }
                   }
                 ],
@@ -17738,12 +17738,13 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "backslash"
+                    "key_code": "quote",
+                    "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 46
+                      "value": 10041
                     }
                   }
                 ]
@@ -17764,13 +17765,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "comma",
-                    "modifiers": "shift"
+                    "key_code": "backslash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10037
+                      "value": 46
                     }
                   }
                 ],
@@ -17794,13 +17794,12 @@
                 },
                 "to": [
                   {
-                    "key_code": "comma",
-                    "modifiers": "shift"
+                    "key_code": "backslash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10037
+                      "value": 46
                     }
                   }
                 ],
@@ -17938,13 +17937,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "comma",
-                    "modifiers": "shift"
+                    "key_code": "backslash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10037
+                      "value": 46
                     }
                   }
                 ]
@@ -17965,12 +17963,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "slash"
+                    "key_code": "quote"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 39
+                      "value": 41
                     }
                   }
                 ],
@@ -17994,12 +17992,12 @@
                 },
                 "to": [
                   {
-                    "key_code": "slash"
+                    "key_code": "quote"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 39
+                      "value": 41
                     }
                   }
                 ],
@@ -18137,12 +18135,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "slash"
+                    "key_code": "quote"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 39
+                      "value": 41
                     }
                   }
                 ]

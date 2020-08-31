@@ -13,28 +13,28 @@ let longPressMapping = {
   w: '-',
   e: '+',
   r: '=',
-  t: '>',
-  g: ';',
-  x: '\\',
-  z: '/',
-  c: '|',
-  v: '&',
-  b: '~',
-  y: '<',
-  h: '*'
+  t: '(',
+  g: '[',
+  x: '"',
+  z: '\'',
+  c: '`',
+  v: '{',
+  b: '*',
+  y: '\\',
+  h: '/'
 }
 let doublePressMapping = {
 }
 let tabMapping = {
-  r: '(',
+  r: '>',
   t: ')',
-  f: '[',
+  f: ';',
   g: ']',
-  c: '{',
+  b: '~',
   v: '}',
-  d: '\'',
-  e: '"',
-  w: '`'
+  e: '<',
+  q: '&',
+  w: '|'
 }
 
 function longPressOp (code, shift = false) {
