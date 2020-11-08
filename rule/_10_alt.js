@@ -29,7 +29,6 @@ let newRules = [
         ],
         "type": "basic"
       },
-
       {
         'conditions': [
           {
@@ -117,7 +116,7 @@ let newRules = [
           'to_if_invoked': [
             {
               'shell_command': `if [ ! -f ~/.cancelVar ]; then
-  key cutAndReplace;
+  ~/.config/karabiner/key cutAndReplace;
 else
   rm -f ~/.cancelVar;
 fi`

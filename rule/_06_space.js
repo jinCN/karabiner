@@ -1210,7 +1210,8 @@ let newRules = [
             }
           },
           {
-            "key_code": "home"
+            "key_code": "left_arrow",
+            "modifiers": "left_command"
           }
         ],
         "type": "basic"
@@ -1233,7 +1234,8 @@ let newRules = [
         },
         "to": [
           {
-            "key_code": "home"
+            "key_code": "left_arrow",
+            "modifiers": "left_command"
           }
         ],
         "type": "basic"
@@ -1277,7 +1279,8 @@ let newRules = [
             }
           },
           {
-            "key_code": "end"
+            "key_code": "right_arrow",
+            "modifiers": "left_command"
           }
         ],
         "type": "basic"
@@ -1300,7 +1303,8 @@ let newRules = [
         },
         "to": [
           {
-            "key_code": "end"
+            "key_code": "right_arrow",
+            "modifiers": "left_command"
           }
         ],
         "type": "basic"

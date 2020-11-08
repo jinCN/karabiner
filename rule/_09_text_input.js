@@ -19,9 +19,9 @@ let longPressMapping = {
   z: '\'',
   c: '`',
   v: '{',
-  b: '*',
-  y: '\\',
-  h: '/'
+  b: '/',
+  y: '*',
+  h: '\\'
 }
 let doublePressMapping = {
 }

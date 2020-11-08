@@ -283,6 +283,7 @@ function inputSymbol (text) {
   system_events.setTheClipboardTo(text)
   system_events.keystroke('v', { using: ['command down'] })
   if (text.length > 1 && text !== '……' && text !== '——') {
+    delay(0.05)
     system_events.keyCode(123)
   }
   delay(0.1)

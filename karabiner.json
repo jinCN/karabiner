@@ -1365,7 +1365,8 @@
                     }
                   },
                   {
-                    "key_code": "home"
+                    "key_code": "left_arrow",
+                    "modifiers": "left_command"
                   }
                 ],
                 "type": "basic"
@@ -1388,7 +1389,8 @@
                 },
                 "to": [
                   {
-                    "key_code": "home"
+                    "key_code": "left_arrow",
+                    "modifiers": "left_command"
                   }
                 ],
                 "type": "basic"
@@ -1432,7 +1434,8 @@
                     }
                   },
                   {
-                    "key_code": "end"
+                    "key_code": "right_arrow",
+                    "modifiers": "left_command"
                   }
                 ],
                 "type": "basic"
@@ -1455,7 +1458,8 @@
                 },
                 "to": [
                   {
-                    "key_code": "end"
+                    "key_code": "right_arrow",
+                    "modifiers": "left_command"
                   }
                 ],
                 "type": "basic"
@@ -13160,13 +13164,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "8",
-                    "modifiers": "shift"
+                    "key_code": "slash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10009
+                      "value": 39
                     }
                   }
                 ],
@@ -13190,13 +13193,12 @@
                 },
                 "to": [
                   {
-                    "key_code": "8",
-                    "modifiers": "shift"
+                    "key_code": "slash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10009
+                      "value": 39
                     }
                   }
                 ],
@@ -13334,13 +13336,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "8",
-                    "modifiers": "shift"
+                    "key_code": "slash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 10009
+                      "value": 39
                     }
                   }
                 ]
@@ -14360,12 +14361,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "slash"
+                    "key_code": "backslash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 39
+                      "value": 46
                     }
                   }
                 ],
@@ -14389,12 +14390,12 @@
                 },
                 "to": [
                   {
-                    "key_code": "slash"
+                    "key_code": "backslash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 39
+                      "value": 46
                     }
                   }
                 ],
@@ -14532,12 +14533,12 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "slash"
+                    "key_code": "backslash"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 39
+                      "value": 46
                     }
                   }
                 ]
@@ -17765,12 +17766,13 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "backslash"
+                    "key_code": "8",
+                    "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 46
+                      "value": 10009
                     }
                   }
                 ],
@@ -17794,12 +17796,13 @@
                 },
                 "to": [
                   {
-                    "key_code": "backslash"
+                    "key_code": "8",
+                    "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 46
+                      "value": 10009
                     }
                   }
                 ],
@@ -17937,12 +17940,13 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "key_code": "backslash"
+                    "key_code": "8",
+                    "modifiers": "shift"
                   },
                   {
                     "set_variable": {
                       "name": "last_code",
-                      "value": 46
+                      "value": 10009
                     }
                   }
                 ]
@@ -20505,7 +20509,7 @@
                   ],
                   "to_if_invoked": [
                     {
-                      "shell_command": "if [ ! -f ~/.cancelVar ]; then\n  key cutAndReplace;\nelse\n  rm -f ~/.cancelVar;\nfi"
+                      "shell_command": "if [ ! -f ~/.cancelVar ]; then\n  ~/.config/karabiner/key cutAndReplace;\nelse\n  rm -f ~/.cancelVar;\nfi"
                     },
                     {
                       "set_variable": {
