@@ -185,7 +185,7 @@ function templateChineseSymbol (symbol) {
           'key_code': 'delete_or_backspace'
         },
         {
-          'shell_command': `~/.config/karabiner/key inputSymbol ${replaceSymbol}`
+          'shell_command': `osascript -l JavaScript ~/.config/karabiner/key inputSymbol ${replaceSymbol}`
         }
       ],
       'type': 'basic'

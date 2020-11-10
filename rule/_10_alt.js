@@ -24,7 +24,7 @@ let newRules = [
             }
           },
           {
-            'shell_command': `~/.config/karabiner/key selectAndReplace`
+            'shell_command': `osascript -l JavaScript ~/.config/karabiner/key selectAndReplace`
           }
         ],
         "type": "basic"
@@ -66,7 +66,7 @@ let newRules = [
           ],
           "to_if_invoked": [
             {
-              'shell_command': `~/.config/karabiner/key selectAndReplace`
+              'shell_command': `osascript -l JavaScript ~/.config/karabiner/key selectAndReplace`
             },
             {
               'set_variable': {
@@ -116,7 +116,7 @@ let newRules = [
           'to_if_invoked': [
             {
               'shell_command': `if [ ! -f ~/.cancelVar ]; then
-  ~/.config/karabiner/key cutAndReplace;
+  osascript -l JavaScript ~/.config/karabiner/key cutAndReplace;
 else
   rm -f ~/.cancelVar;
 fi`

@@ -3070,7 +3070,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol ；"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol ；"
                   }
                 ],
                 "type": "basic"
@@ -3099,7 +3099,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol ："
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol ："
                   }
                 ],
                 "type": "basic"
@@ -3128,7 +3128,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol ，"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol ，"
                   }
                 ],
                 "type": "basic"
@@ -3157,7 +3157,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol 。"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol 。"
                   }
                 ],
                 "type": "basic"
@@ -3186,7 +3186,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol ！"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol ！"
                   }
                 ],
                 "type": "basic"
@@ -3215,7 +3215,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol ？"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol ？"
                   }
                 ],
                 "type": "basic"
@@ -3244,7 +3244,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol ……"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol ……"
                   }
                 ],
                 "type": "basic"
@@ -3273,7 +3273,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol ——"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol ——"
                   }
                 ],
                 "type": "basic"
@@ -3302,7 +3302,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol 、"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol 、"
                   }
                 ],
                 "type": "basic"
@@ -3331,7 +3331,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol 】"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol 】"
                   }
                 ],
                 "type": "basic"
@@ -3360,7 +3360,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol 」"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol 」"
                   }
                 ],
                 "type": "basic"
@@ -3389,7 +3389,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol 》"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol 》"
                   }
                 ],
                 "type": "basic"
@@ -3418,7 +3418,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol ）"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol ）"
                   }
                 ],
                 "type": "basic"
@@ -3447,7 +3447,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol 、"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol 、"
                   }
                 ],
                 "type": "basic"
@@ -3476,7 +3476,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol ·"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol ·"
                   }
                 ],
                 "type": "basic"
@@ -3505,7 +3505,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol ‘’"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol ‘’"
                   }
                 ],
                 "type": "basic"
@@ -3534,7 +3534,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol “”"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol “”"
                   }
                 ],
                 "type": "basic"
@@ -3563,7 +3563,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol （）"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol （）"
                   }
                 ],
                 "type": "basic"
@@ -3592,7 +3592,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol 《》"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol 《》"
                   }
                 ],
                 "type": "basic"
@@ -3621,7 +3621,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol 【】"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol 【】"
                   }
                 ],
                 "type": "basic"
@@ -3650,7 +3650,7 @@
                     "key_code": "delete_or_backspace"
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key inputSymbol 「」"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key inputSymbol 「」"
                   }
                 ],
                 "type": "basic"
@@ -20416,7 +20416,7 @@
                     }
                   },
                   {
-                    "shell_command": "~/.config/karabiner/key selectAndReplace"
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/key selectAndReplace"
                   }
                 ],
                 "type": "basic"
@@ -20458,7 +20458,7 @@
                   ],
                   "to_if_invoked": [
                     {
-                      "shell_command": "~/.config/karabiner/key selectAndReplace"
+                      "shell_command": "osascript -l JavaScript ~/.config/karabiner/key selectAndReplace"
                     },
                     {
                       "set_variable": {
@@ -20509,7 +20509,7 @@
                   ],
                   "to_if_invoked": [
                     {
-                      "shell_command": "if [ ! -f ~/.cancelVar ]; then\n  ~/.config/karabiner/key cutAndReplace;\nelse\n  rm -f ~/.cancelVar;\nfi"
+                      "shell_command": "if [ ! -f ~/.cancelVar ]; then\n  osascript -l JavaScript ~/.config/karabiner/key cutAndReplace;\nelse\n  rm -f ~/.cancelVar;\nfi"
                     },
                     {
                       "set_variable": {
@@ -20618,6 +20618,326 @@
                     }
                   ]
                 },
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Super call anything with cmd+ctrl+shift+num",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "0",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall 0"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall 1"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "2",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall 2"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "3",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall 3"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "4",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall 4"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "5",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall 5"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "6",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall 6"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "7",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall 7"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "8",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall 8"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "9",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall 9"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "period",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall period"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "comma",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall comma"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall j"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall k"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "caps_lock"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "osascript -l JavaScript ~/.config/karabiner/karabinerSuperCall l"
+                  }
+                ],
                 "type": "basic"
               }
             ]

@@ -11,4 +11,6 @@ file.set('profiles.0.complex_modifications.rules',rules)
 
 fs.copySync(`${__dirname}/karabiner.json`, `${__dirname}/back/karabiner-${new Date().toISOString()}.json`)
 file.save()
+require('child_process').execSync('osacompile -l JavaScript -x -o key key.js')
+require('child_process').execSync('osacompile -l JavaScript -x -o karabinerSuperCall karabinerSuperCall.js')
 console.log(`'ok': `, 'ok')
