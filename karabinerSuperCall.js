@@ -1,9 +1,11 @@
 #!/usr/bin/env osascript -l JavaScript
-
 function selectText () {
+  let oldClip = system_events.theClipboard()
   system_events.keystroke('c', { using: ['command down'] })
   delay(0.05)
   let clip = system_events.theClipboard()
+  system_events.setTheClipboardTo(oldClip)
+
   return clip
 }
 
@@ -21,7 +23,7 @@ function run (argv) {
     } else if (key === 'comma') {
       // do test function
 
-      let test = selectText()
+      let test = system_events.theClipboard()
       app.displayDialog(test)
     } else if (key === 'period') {
       // kill running
@@ -41,9 +43,15 @@ function run (argv) {
           ret = e + '\n' + e.stack
         }
         if (ret && ret.length > 0) {
-          app.displayDialog(ret)
+          let action = app.displayDialog(ret,{
+            buttons: ['取消','确认并复制'],
+            defaultButton: '确认并复制',
+            cancelButton: '取消',
+          })
+          if (action.buttonReturned==='确认并复制'){
+            system_events.setTheClipboardTo(ret)
+          }
         }
-        system_events.setTheClipboardTo(ret)
       }
     } else if (key === 'l') {
       // say selected
