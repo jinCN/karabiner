@@ -6,6 +6,7 @@ function selectText () {
   let clip = system_events.theClipboard()
   system_events.setTheClipboardTo(oldClip)
 
+  if (typeof clip !== 'string') return ''
   return clip
 }
 
@@ -23,8 +24,12 @@ function run (argv) {
     } else if (key === 'comma') {
       // do test function
 
-      let test = system_events.theClipboard()
-      app.displayDialog(test)
+      let script = selectText()
+      var response = app.displayDialog('输入吧：', {
+        defaultAnswer: script,
+        withIcon: 'note'
+      })
+      // Result: {"buttonReturned":"Continue", "textReturned":"Jen"}
     } else if (key === 'period') {
       // kill running
 
@@ -34,24 +39,21 @@ function run (argv) {
       // js eval selected
 
       let script = selectText()
-
+      let ret = ''
       if (script) {
-        let ret
         try {
           ret = sh(`export PATH=/Users/Jerry/.nvm/versions/node/v14.12.0/bin:$PATH;node ~/.config/karabiner/karabinerSuperCallJs.js ${shellUtils.quote(script)} 2>&1`)
         } catch (e) {
           ret = e + '\n' + e.stack
         }
-        if (ret && ret.length > 0) {
-          let action = app.displayDialog(ret,{
-            buttons: ['取消','确认并复制'],
-            defaultButton: '确认并复制',
-            cancelButton: '取消',
-          })
-          if (action.buttonReturned==='确认并复制'){
-            system_events.setTheClipboardTo(ret)
-          }
-        }
+      }
+      let action = app.displayDialog(ret, {
+        buttons: ['取消', '确认并复制'],
+        defaultButton: '确认并复制',
+        cancelButton: '取消'
+      })
+      if (action.buttonReturned === '确认并复制') {
+        system_events.setTheClipboardTo(ret)
       }
     } else if (key === 'l') {
       // say selected
@@ -71,13 +73,11 @@ function run (argv) {
   }
 }
 
-
 // <editor-fold> helpers
 var system_events = Application('System Events')
 system_events.includeStandardAdditions = true
 app = Application.currentApplication()
 app.includeStandardAdditions = true
-
 
 function sh (s) {
   return app.doShellScript(s)
@@ -318,9 +318,9 @@ function parse (s, env, opts) {
     }
 
     if (typeof r === 'object') {
-      return pre + TOKEN + JSON.stringify(r) + TOKEN;
+      return pre + TOKEN + JSON.stringify(r) + TOKEN
     } else {
-      return pre + r;
+      return pre + r
     }
   }
 }

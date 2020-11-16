@@ -148,3 +148,6 @@ let main = async () => {
 }
 
 main()
+setTimeout(()=>{
+  throw new Error('timeout of 30s exceeded')
+},30*1000)
