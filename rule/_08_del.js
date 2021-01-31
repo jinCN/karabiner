@@ -115,6 +115,11 @@ let newRules = [
                 "description": "hhkb",
                 "product_id": 256,
                 "vendor_id": 2131
+              },
+              {
+                "description": "hhkb",
+                "product_id": 33,
+                "vendor_id": 1278
               }
             ],
             "type": "device_if"
