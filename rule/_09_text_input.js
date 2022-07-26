@@ -202,72 +202,74 @@ function template (code, shift = false) {
 
   return [
     ...shift ? [] : [
-      {
-        'conditions': [
-          {
-            'name': 'just_pressed',
-            'type': 'variable_if',
-            'value': codeInt
-          }
-        ],
-        'from': {
-          'pointing_button': 'button2'
-        },
-
-        'to': [
-
-          {
-            'key_code': 'delete_or_backspace'
-          },
-          {
-            'key_code': lCode,
-            ...lShift && {
-              'modifiers': 'shift'
-            }
-          },
-          {
-            'set_variable': {
-              'name': 'last_code',
-              'value': lCodeInt
-            }
-          }
-
-        ],
-
-        'type': 'basic'
-      },
-      {
-        'conditions': [
-          {
-            'name': 'mouseRightFN',
-            'type': 'variable_if',
-            'value': 1
-          }
-        ],
-        'from': {
-          'key_code': code,
-          'modifiers': {
-            'optional': [
-              'any'
-            ]
-          }
-        },
-        'to': [
-          {
-            'key_code': lCode,
-            ...lShift && {
-              'modifiers': 'shift'
-            }
-          },
-          {
-            'set_variable': {
-              'name': 'last_code',
-              'value': lCodeInt
-            }
-          }
-        ],
-        'type': 'basic'
-      }
+      // no longer needed, because it effects touchpad
+//
+//      {
+//        'conditions': [
+//          {
+//            'name': 'just_pressed',
+//            'type': 'variable_if',
+//            'value': codeInt
+//          }
+//        ],
+//        'from': {
+//          'pointing_button': 'button2'
+//        },
+//
+//        'to': [
+//
+//          {
+//            'key_code': 'delete_or_backspace'
+//          },
+//          {
+//            'key_code': lCode,
+//            ...lShift && {
+//              'modifiers': 'shift'
+//            }
+//          },
+//          {
+//            'set_variable': {
+//              'name': 'last_code',
+//              'value': lCodeInt
+//            }
+//          }
+//
+//        ],
+//
+//        'type': 'basic'
+//      },
+//      {
+//        'conditions': [
+//          {
+//            'name': 'mouseRightFN',
+//            'type': 'variable_if',
+//            'value': 1
+//          }
+//        ],
+//        'from': {
+//          'key_code': code,
+//          'modifiers': {
+//            'optional': [
+//              'any'
+//            ]
+//          }
+//        },
+//        'to': [
+//          {
+//            'key_code': lCode,
+//            ...lShift && {
+//              'modifiers': 'shift'
+//            }
+//          },
+//          {
+//            'set_variable': {
+//              'name': 'last_code',
+//              'value': lCodeInt
+//            }
+//          }
+//        ],
+//        'type': 'basic'
+//      }
     ],
 
     {// shift 替换最后输入
@@ -345,7 +347,7 @@ function template (code, shift = false) {
         }
       ],
       'parameters': {
-        'basic.to_if_held_down_threshold_milliseconds': 200
+        'basic.to_if_held_down_threshold_milliseconds': 300
       },
       'to_if_held_down': [
 
@@ -402,7 +404,7 @@ function template (code, shift = false) {
         }],
       'parameters': {
         'basic.to_delayed_action_delay_milliseconds': 250,
-        'basic.to_if_held_down_threshold_milliseconds': 300
+        'basic.to_if_held_down_threshold_milliseconds': 400
       },
       'to_delayed_action': {
         'to_if_canceled': [
@@ -449,36 +451,37 @@ Object.keys(tabMapping).map(v => rule.manipulators.push(...templateTab(v)))
 codeTable.chineseSymbols.map(v => rule.manipulators.push(...templateChineseSymbol(v)))
 codeTable.codesAll.map(v => rule.manipulators.push(...template(v, true)))
 codeTable.codesAll.map(v => rule.manipulators.push(...template(v)))
-rule.manipulators.push(...[
-  {
-    'from': {
-      'pointing_button': 'button2',
-      'modifiers': {
-        'optional': [
-          'any'
-        ]
-      }
-    },
-    to: [
-      {
-        'set_variable': {
-          'name': 'mouseRightFN',
-          'value': 1
-        }
-      }
-    ],
-    to_after_key_up:[
-      {
-        'set_variable': {
-          'name': 'mouseRightFN',
-          'value': 0
-        }
-      }
-    ],
-    'to_if_alone': [
-      { 'pointing_button': 'button2' }
-    ],
-    type:'basic'
-  }
-
-])
+// no more right click functions, because it affect touchpad
+//rule.manipulators.push(...[
+//  {
+//    'from': {
+//      'pointing_button': 'button2',
+//      'modifiers': {
+//        'optional': [
+//          'any'
+//        ]
+//      }
+//    },
+//    to: [
+//      {
+//        'set_variable': {
+//          'name': 'mouseRightFN',
+//          'value': 1
+//        }
+//      }
+//    ],
+//    to_after_key_up:[
+//      {
+//        'set_variable': {
+//          'name': 'mouseRightFN',
+//          'value': 0
+//        }
+//      }
+//    ],
+//    'to_if_alone': [
+//      { 'pointing_button': 'button2' }
+//    ],
+//    type:'basic'
+//  }
+//
+//])
