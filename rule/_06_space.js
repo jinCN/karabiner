@@ -387,7 +387,7 @@ let newRules = [
           },
           {
             "mouse_key": {
-              "y": -1000
+              "y": -420
             }
           }
         ],
@@ -412,7 +412,7 @@ let newRules = [
         "to": [
           {
             "mouse_key": {
-              "y": -1000
+              "y": -420
             }
           }
         ],
@@ -458,7 +458,7 @@ let newRules = [
           },
           {
             "mouse_key": {
-              "y": 1000
+              "y": 420
             }
           }
         ],
@@ -483,7 +483,7 @@ let newRules = [
         "to": [
           {
             "mouse_key": {
-              "y": 1000
+              "y": 420
             }
           }
         ],
@@ -529,7 +529,7 @@ let newRules = [
           },
           {
             "mouse_key": {
-              "x": -1200
+              "x": -520
             }
           }
         ],
@@ -554,7 +554,7 @@ let newRules = [
         "to": [
           {
             "mouse_key": {
-              "x": -1200
+              "x": -520
             }
           }
         ],
@@ -600,7 +600,7 @@ let newRules = [
           },
           {
             "mouse_key": {
-              "x": 1200
+              "x": 520
             }
           }
         ],
@@ -625,7 +625,7 @@ let newRules = [
         "to": [
           {
             "mouse_key": {
-              "x": 1200
+              "x": 520
             }
           }
         ],
